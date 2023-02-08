@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "VerifoneVipaSimulator": {
+      "commandName": "Project",
+      "commandLineArgs": "/C"
+    }
+  }
+}
