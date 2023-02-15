@@ -44,6 +44,16 @@ namespace Devices.Common.Helpers
         NoDeviceMatched = 3
     }
 
+    public enum DeviceDiscoveryResults
+    {
+        [StringValue("No device detected")]
+        NoDeviceAvailable = 1,
+        [StringValue("Device not specified")]
+        NoDeviceSpecified = 2,
+        [StringValue("No Device matching")]
+        NoDeviceMatched = 3
+    }
+
     [System.AttributeUsage(System.AttributeTargets.All, AllowMultiple = false, Inherited = true)]
     public class StringValueAttribute : Attribute
     {

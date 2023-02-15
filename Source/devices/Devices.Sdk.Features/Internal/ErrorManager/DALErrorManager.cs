@@ -1,16 +1,17 @@
-﻿using Devices.Common;
-using Devices.Sdk.Features.Internal.State;
-using Common.XO.Common.DAL;
-using Common.XO.ProtoBuf;
+﻿using Common.XO.Device;
 using Common.XO.Requests;
 using Common.XO.Requests.DAL;
+using Devices.Common.Interfaces;
+using Devices.Sdk.Features.Internal.State;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
+using System.ServiceProcess;
 using System.Threading.Tasks;
-using LinkRequest = XO.Requests.LinkRequest;
+using XO.ProtoBuf;
+using LinkRequest = Common.XO.Requests.LinkRequest;
+using ServiceType = XO.ProtoBuf.ServiceType;
 
 namespace Devices.Sdk.Features.Internal.ErrorManager
 {
@@ -18,7 +19,7 @@ namespace Devices.Sdk.Features.Internal.ErrorManager
     {
         private IDALStateController context;
 
-        private ILoggingServiceClient LoggingClient => context.LoggingClient;
+        //private ILoggingServiceClient LoggingClient => context.LoggingClient;
 
         public DALErrorManager(IDALStateController controller) => context = controller;
 
@@ -41,42 +42,42 @@ namespace Devices.Sdk.Features.Internal.ErrorManager
                             // Message to Monitor: Connection Failure
                             LinkRequest eventToPublish = CreateNetworkErrorRequestForMonitor(request, "Network Connection Failure");
                             string jsonToPublish = JsonConvert.SerializeObject(eventToPublish);
-                            _ = context.Connector.PublishAsync(jsonToPublish, brokerMessage.Header, ServiceType.Monitor, context.Connector.GetServiceIdentifier());
+                            //_ = context.Connector.PublishAsync(jsonToPublish, brokerMessage.Header, ServiceType.Monitor, context.Connector.GetServiceIdentifier());
 
                             // Message on Device: Communication Failure
                             IPaymentDevice device = FindTargetDevice(request.Actions.First().DALRequest.DeviceIdentifier);
                             if (device is ICardDevice cardDevice)
                             {
-                                _ = LoggingClient.LogInfoAsync($"DAL: Failed Send Message displayed on device '{device?.DeviceInformation?.SerialNumber ?? "Serial No. Not Available"}'.");
+                                //_ = LoggingClient.LogInfoAsync($"DAL: Failed Send Message displayed on device '{device?.DeviceInformation?.SerialNumber ?? "Serial No. Not Available"}'.");
                                 LinkRequest networkErrorRequest = CreateNetworkErrorRequestForDevice(request);
-                                cardDevice.DeviceUI(networkErrorRequest, CancellationToken.None);
+                                //cardDevice.DeviceUI(networkErrorRequest, CancellationToken.None);
                                 await Task.Delay(4000);
                                 cardDevice.DeviceSetIdle();
                             }
                             else
                             {
-                                _ = LoggingClient.LogInfoAsync($"DAL: Not sending Failed Send Message to device '{device?.DeviceInformation?.SerialNumber ?? "Serial No. Not Available"}'.");
+                                //_ = LoggingClient.LogInfoAsync($"DAL: Not sending Failed Send Message to device '{device?.DeviceInformation?.SerialNumber ?? "Serial No. Not Available"}'.");
                             }
                         }
                         else
                         {
-                            _ = LoggingClient.LogWarnAsync($"DAL: Ignoring Failed Send Message failed with action type '{actionType?.ToString() ?? "<NULL>"}'.");
+                            //_ = LoggingClient.LogWarnAsync($"DAL: Ignoring Failed Send Message failed with action type '{actionType?.ToString() ?? "<NULL>"}'.");
                         }
                     }
                     else
                     {
-                        _ = LoggingClient.LogInfoAsync($"Error sending BrokerMessage, ignoring {JsonConvert.SerializeObject(brokerMessage.Header)}");
+                        //_ = LoggingClient.LogInfoAsync($"Error sending BrokerMessage, ignoring {JsonConvert.SerializeObject(brokerMessage.Header)}");
                     }
                 }
                 catch (Exception ex)
                 {
-                    _ = LoggingClient.LogErrorAsync($"DAL: Handling Failed Send Message failed.", ex);
+                    //_ = LoggingClient.LogErrorAsync($"DAL: Handling Failed Send Message failed.", ex);
                     return false;
                 }
             }
             else
             {
-                _ = LoggingClient.LogWarnAsync($"DAL: Unable to handle Failed Send Message failed with object type '{message.GetType()}'.");
+                //_ = LoggingClient.LogWarnAsync($"DAL: Unable to handle Failed Send Message failed with object type '{message.GetType()}'.");
                 return false;
             }
             return true;
@@ -93,27 +94,27 @@ namespace Devices.Sdk.Features.Internal.ErrorManager
                 new LinkActionRequest()
                 {
                     MessageID = firstAction.MessageID,
-                    SessionID = firstAction.SessionID,
+                    //SessionID = firstAction.SessionID,
                     Action = LinkAction.PaymentUpdate,
                     DALRequest = firstAction.DALRequest,
                     DALActionRequest = new LinkDALActionRequest()
                     {
                         DALAction = firstAction.DALActionRequest?.DALAction ?? LinkDALActionType.MonitorMessageUpdate,
-                        DeviceUIRequest = new LinkDeviceUIRequest()
-                        {
-                            UIAction = LinkDeviceUIActionType.Display,
-                            Complete = true,
-                            MonitorTopMost = linkRequest.Actions[0].DALActionRequest?.DeviceUIRequest?.MonitorTopMost ?? true,
-                            MonitorTopMostInterval = linkRequest.Actions[0].DALActionRequest?.DeviceUIRequest?.MonitorTopMostInterval ?? "10",
-                            DisplayText = new List<string>()
-                            {
-                                message ,
-                                "Close"
-                            },
-                        }
+                        //DeviceUIRequest = new LinkDeviceUIRequest()
+                        //{
+                        //    UIAction = LinkDeviceUIActionType.Display,
+                        //    Complete = true,
+                        //    MonitorTopMost = linkRequest.Actions[0].DALActionRequest?.DeviceUIRequest?.MonitorTopMost ?? true,
+                        //    MonitorTopMostInterval = linkRequest.Actions[0].DALActionRequest?.DeviceUIRequest?.MonitorTopMostInterval ?? "10",
+                        //    DisplayText = new List<string>()
+                        //    {
+                        //        message ,
+                        //        "Close"
+                        //    },
+                        //}
                     },
                     PaymentRequest = firstAction.PaymentRequest,
-                    PaymentUpdateRequest = new XO.Requests.Payment.LinkPaymentUpdateRequest() { ManualPayment = false }
+                    //PaymentUpdateRequest = new XO.Requests.Payment.LinkPaymentUpdateRequest() { ManualPayment = false }
                 }
             };
 
@@ -124,29 +125,29 @@ namespace Devices.Sdk.Features.Internal.ErrorManager
             => new LinkRequest()
             {
                 MessageID = linkRequest.MessageID,
-                TCCustID = linkRequest.TCCustID,
-                TCPassword = linkRequest.TCPassword,
-                IPALicenseKey = linkRequest.IPALicenseKey,
-                Actions = new List<LinkActionRequest>()
-                    {
-                        new LinkActionRequest()
-                        {
-                            Action = LinkAction.Payment,
-                            DALRequest = linkRequest.Actions[0].DALRequest,
-                            DALActionRequest = new LinkDALActionRequest()
-                            {
-                                DALAction = LinkDALActionType.DeviceUI,
-                                DeviceUIRequest = new LinkDeviceUIRequest()
-                                {
-                                    UIAction = LinkDeviceUIActionType.Display,
-                                    DisplayText = new List<string>()
-                                    {
-                                        $"NETWORK CONNECTION\n{new string(' ', 17)}FAILURE"  // 17 spaces makes it look centered on a P200Plus
-                                    },
-                                }
-                            },
-                        }
-                    }
+                //TCCustID = linkRequest.TCCustID,
+                //TCPassword = linkRequest.TCPassword,
+                //IPALicenseKey = linkRequest.IPALicenseKey,
+                //Actions = new List<LinkActionRequest>()
+                //    {
+                //        new LinkActionRequest()
+                //        {
+                //            Action = LinkAction.Payment,
+                //            DALRequest = linkRequest.Actions[0].DALRequest,
+                //            DALActionRequest = new LinkDALActionRequest()
+                //            {
+                //                DALAction = LinkDALActionType.DeviceUI,
+                //                DeviceUIRequest = new LinkDeviceUIRequest()
+                //                {
+                //                    UIAction = LinkDeviceUIActionType.Display,
+                //                    DisplayText = new List<string>()
+                //                    {
+                //                        $"NETWORK CONNECTION\n{new string(' ', 17)}FAILURE"  // 17 spaces makes it look centered on a P200Plus
+                //                    },
+                //                }
+                //            },
+                //        }
+                //    }
             };
 
         public IPaymentDevice FindTargetDevice(LinkDeviceIdentifier deviceIdentifier)

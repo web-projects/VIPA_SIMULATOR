@@ -17,7 +17,7 @@ using LinkRequest = Common.XO.Requests.LinkRequest;
 
 namespace Devices.Sdk.Features.State.Management
 {
-    internal class GenericSubStateManagerImpl : IDALSubStateManager, IDeviceSubStateController, IStateControllerVisitable<ISubWorkflowHook, IDALSubStateController>
+    internal class GenericSubStateManagerImpl : IDALSubStateManager, IDALSubStateController, IStateControllerVisitable<ISubWorkflowHook, IDALSubStateController>
     {
         public DeviceSection Configuration => context.Configuration;
         public ConcurrentDictionary<string, string[]> AvailableFeatures => context.FeatureManager.GetAvailableFeatures();
@@ -38,7 +38,7 @@ namespace Devices.Sdk.Features.State.Management
 
         public DeviceEvent DeviceEvent { get; private set; }
         public IDeviceHighLevelRegister Register { get; private set; }
-        public CommunicationObject LastGetStatus { get => context.LastGetStatus; set => context.LastGetStatus = value; }
+        //public CommunicationObject LastGetStatus { get => context.LastGetStatus; set => context.LastGetStatus = value; }
 
         public IInterruptManager InterruptManager => context.InterruptManager;
 
@@ -193,7 +193,7 @@ namespace Devices.Sdk.Features.State.Management
         private void LogStateChange(DALSubWorkflowState oldState, DALSubWorkflowState newState)
         {
             // TODO: Add your logging here on the state change and update the messaging if necessary.
-            LoggingClient.LogInfoAsync($"State change from {oldState} to {newState}.");
+            //LoggingClient.LogInfoAsync($"State change from {oldState} to {newState}.");
         }
 
         #endregion
@@ -253,7 +253,7 @@ namespace Devices.Sdk.Features.State.Management
                 catch (AggregateException ex)
                 {
                     // TODO: Log any aggregate exceptions you get here.
-                    LoggingClient.LogErrorAsync(ex.Message, ex);
+                    //LoggingClient.LogErrorAsync(ex.Message, ex);
                 }
             }
         }
@@ -295,7 +295,7 @@ namespace Devices.Sdk.Features.State.Management
 
         public void CancelCurrentSubStateAction(DeviceEvent deviceEvent)
         {
-            context.LoggingClient.LogInfoAsync("Cancel Current SSA Requested");
+            //context.LoggingClient.LogInfoAsync("Cancel Current SSA Requested");
 
             if (cancellationTokenSource != null)
             {
@@ -307,7 +307,7 @@ namespace Devices.Sdk.Features.State.Management
             {
                 if (currentStateAction is null)
                 {
-                    context.LoggingClient.LogInfoAsync("Cancel Current SSA is being ignored.");
+                    //context.LoggingClient.LogInfoAsync("Cancel Current SSA is being ignored.");
                     return;
                 }
                 Complete(currentStateAction);
@@ -365,11 +365,11 @@ namespace Devices.Sdk.Features.State.Management
             }
         }
 
-        bool IDALSubStateController.RequestWorkflowCancellation()
-        {
-            RequestCancellationIfNecessary();
-            return (cancellationTokenSource != null);
-        }
+        //bool IDALSubStateController.RequestWorkflowCancellation()
+        //{
+        //    RequestCancellationIfNecessary();
+        //    return (cancellationTokenSource != null);
+        //}
 
         //public IPaymentDevice[] GetAvailableDevices() => context.GetAvailableDevices();
 
@@ -383,5 +383,15 @@ namespace Devices.Sdk.Features.State.Management
 
         public bool RequestSupported(LinkRequest request) =>
             currentStateAction?.RequestSupported(request) ?? false;
+
+        bool IDALSubStateController.RequestWorkflowCancellation()
+        {
+            return false;
+        }
+
+        IPaymentDevice[] IDALSubStateController.GetAvailableDevices()
+        {
+            return null;
+        }
     }
 }

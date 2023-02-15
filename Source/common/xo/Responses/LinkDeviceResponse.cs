@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Common.XO.Device;
+using XO.Device;
 
 namespace Common.XO.Responses
 {
@@ -19,6 +20,6 @@ namespace Common.XO.Responses
         public string EMVL2KernelVersion { get; set; }
         public string ContactlessKernelInformation { get; set; }
         //CardWorkflowControls only used when request Action = 'DALStatus'; can be null
-        //public LinkCardWorkflowControls CardWorkflowControls { get; set; }
+        public LinkCardWorkflowControls CardWorkflowControls { get; set; }
     }
 }

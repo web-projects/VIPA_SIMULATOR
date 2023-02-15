@@ -16,7 +16,7 @@ namespace Devices.Common
 
             if (device == null)
             {
-                throw new Exception(StringValueAttribute.GetStringValue(DeviceDiscovery.NoDeviceAvailable));
+                throw new Exception(StringValueAttribute.GetStringValue(Helpers.DeviceDiscovery.NoDeviceAvailable));
             }
 
             return device.Name.Equals(name, StringComparison.OrdinalIgnoreCase);

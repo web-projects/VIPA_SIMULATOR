@@ -1,4 +1,4 @@
-﻿using Devices.Common;
+﻿using Devices.Common.Interfaces;
 
 namespace Devices.Sdk.Features.Interrupt
 {

@@ -18,7 +18,7 @@ using System.Threading.Tasks;
 
 namespace Devices.Core.State.SubWorkflows.Management
 {
-    internal class GenericSubStateManagerImpl : IDeviceSubStateManager, IDeviceSubStateController, IStateControllerVisitable<ISubWorkflowHook, IDeviceSubStateController>
+    internal class GenericSubStateManagerImpl : IDeviceSubStateManager, IDALSubStateController, IStateControllerVisitable<ISubWorkflowHook, IDALSubStateController>
     {
         private readonly IDeviceStateController context;
         private readonly Stack<object> savedStackState = new Stack<object>();
@@ -58,7 +58,7 @@ namespace Devices.Core.State.SubWorkflows.Management
             TeardownCancellationTokenSource();
         }
 
-        public void Accept(IStateControllerVisitor<ISubWorkflowHook, IDeviceSubStateController> visitor)
+        public void Accept(IStateControllerVisitor<ISubWorkflowHook, IDALSubStateController> visitor)
             => visitor.Visit(context as ISubWorkflowHook, this);
 
         public Task Complete(IDeviceSubStateAction state)

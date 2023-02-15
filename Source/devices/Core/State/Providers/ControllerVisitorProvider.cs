@@ -6,10 +6,10 @@ namespace Devices.Core.State.Providers
 {
     internal class ControllerVisitorProvider : IControllerVisitorProvider
     {
-        public IStateControllerVisitor<ISubWorkflowHook, IDeviceSubStateController> CreateBoundarySetupVisitor()
+        public IStateControllerVisitor<ISubWorkflowHook, IDALSubStateController> CreateBoundarySetupVisitor()
             => new WorkflowBoundarySetupVisitor();
 
-        public IStateControllerVisitor<ISubWorkflowHook, IDeviceSubStateController> CreateBoundaryTeardownVisitor()
+        public IStateControllerVisitor<ISubWorkflowHook, IDALSubStateController> CreateBoundaryTeardownVisitor()
             => new WorkflowBoundaryTeardownVisitor();
     }
 }

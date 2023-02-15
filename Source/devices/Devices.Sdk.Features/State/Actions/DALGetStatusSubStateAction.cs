@@ -159,7 +159,7 @@ namespace Devices.Sdk.Features.State.Actions
 
                 CommunicationObject saveObject = new CommunicationObject(commObject.Header, linkRequest);
                 Controller.SaveState(saveObject);
-                Controller.LastGetStatus = saveObject;
+                //Controller.LastGetStatus = saveObject;
 
                 _ = Complete(this);
             }

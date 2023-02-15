@@ -1,6 +1,8 @@
 ﻿using Common.XO.Device;
 using Common.XO.Requests;
+using Devices.Common.Constants;
 using Devices.Common.Helpers;
+using Devices.Common.Interfaces;
 using Devices.Common.State;
 using Devices.Sdk.Features.Cancellation;
 using System.Threading.Tasks;
@@ -23,7 +25,7 @@ namespace Devices.Sdk.Features.State.Actions
         {
             if (StateObject is null)
             {
-                _ = Controller.LoggingClient.LogErrorAsync("Unable to find a state object while attempting to get card information.");
+                //_ = Controller.LoggingClient.LogErrorAsync("Unable to find a state object while attempting to get card information.");
                 _ = Error(this);
             }
             else
@@ -44,7 +46,7 @@ namespace Devices.Sdk.Features.State.Actions
 
                     if (timeoutPolicy.Outcome == Polly.OutcomeType.Failure)
                     {
-                        _ = Controller.LoggingClient.LogErrorAsync($"Unable to obtain Card Information from device - '{Controller.DeviceEvent}'.", StatusType.DALTimeOuts);
+                        //_ = Controller.LoggingClient.LogErrorAsync($"Unable to obtain Card Information from device - '{Controller.DeviceEvent}'.", StatusType.DALTimeOuts);
                         BuildSubworkflowErrorResponse(linkRequest, cardDevice.DeviceInformation, Controller.DeviceEvent);
                     }
                 }

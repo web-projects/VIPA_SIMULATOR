@@ -1,9 +1,11 @@
-﻿using Common.XO.Requests;
-using Common.XO.Responses;
+﻿using Common.XO.Responses;
 using Devices.Common.AppConfig;
 using System;
 using System.Collections.Generic;
 using System.Threading;
+using XO.ProtoBuf;
+using LinkErrorValue = Common.XO.Responses.LinkErrorValue;
+using LinkRequest = Common.XO.Requests.LinkRequest;
 
 namespace Devices.Common.Interfaces
 {
@@ -46,7 +48,7 @@ namespace Devices.Common.Interfaces
 
         List<LinkDeviceResponse> GetDeviceResponse(LinkDeviceResponse deviceInfo);
 
-        //void SetRequestHeader(CommunicationHeader header);
+        void SetRequestHeader(CommunicationHeader header);
 
         LinkRequest GetStatus(LinkRequest request, CancellationToken cancellationToken);
     }

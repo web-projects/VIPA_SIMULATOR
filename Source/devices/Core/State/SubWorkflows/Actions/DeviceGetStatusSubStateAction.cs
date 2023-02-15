@@ -14,7 +14,7 @@ namespace Devices.Core.State.SubWorkflows.Actions
     {
         public override DeviceSubWorkflowState WorkflowStateType => DeviceSubWorkflowState.GetStatus;
 
-        public DeviceGetStatusSubStateAction(IDeviceSubStateController _) : base(_) { }
+        public DeviceGetStatusSubStateAction(IDALSubStateController _) : base(_) { }
 
         public override SubStateActionLaunchRules LaunchRules => new SubStateActionLaunchRules
         {

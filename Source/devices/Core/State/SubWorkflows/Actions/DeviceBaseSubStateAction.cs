@@ -17,7 +17,7 @@ namespace Devices.Core.State.SubWorkflows.Actions
         public virtual bool WorkflowCutoff { get; }
         public StateException LastException { get; set; }
 
-        public IDeviceSubStateController Controller { get; }
+        public IDALSubStateController Controller { get; }
 
         public abstract DeviceSubWorkflowState WorkflowStateType { get; }
 
@@ -27,7 +27,7 @@ namespace Devices.Core.State.SubWorkflows.Actions
 
         public virtual SubStateActionLaunchRules LaunchRules { get; }
 
-        public DeviceBaseSubStateAction(IDeviceSubStateController controller) => (Controller) = (controller);
+        public DeviceBaseSubStateAction(IDALSubStateController controller) => (Controller) = (controller);
 
         public void Dispose()
         {

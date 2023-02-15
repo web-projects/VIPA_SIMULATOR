@@ -1,12 +1,8 @@
 ﻿using Devices.Common.State;
-using Common.XO.Common.Helpers;
-using Common.XO.ProtoBuf;
-using Common.XO.Requests.DAL;
 using Newtonsoft.Json;
 using System.Linq;
 using System.Threading.Tasks;
 using static Devices.Sdk.Features.State.DALSubWorkflowState;
-using LinkRequest = XO.Requests.LinkRequest;
 
 namespace Devices.Sdk.Features.State.Actions
 {
@@ -24,15 +20,15 @@ namespace Devices.Sdk.Features.State.Actions
             {
                 string serializedResponse = JsonConvert.SerializeObject(stateObject.LinkRequest);
 
-                if (DALActionTypeHelper.IsActionTest(stateObject.LinkRequest.Actions?.FirstOrDefault()?.DALActionRequest?.DALAction))
-                {
-                    _ = Controller.Connector.PublishAsync(serializedResponse, stateObject.Header, stateObject.Header.CommIdentifiers[0].Service, stateObject.Header?.CommIdentifiers[0]).ConfigureAwait(false);
-                }
-                else
-                {
-                    _ = Controller.Connector.PublishAsync(serializedResponse, stateObject.Header, ServiceType.Servicer).ConfigureAwait(false);
-                }
-                _ = Controller.LoggingClient.LogInfoAsync($"Request completed. Sending to broker.");
+                //if (DALActionTypeHelper.IsActionTest(stateObject.LinkRequest.Actions?.FirstOrDefault()?.DALActionRequest?.DALAction))
+                //{
+                    //_ = Controller.Connector.PublishAsync(serializedResponse, stateObject.Header, stateObject.Header.CommIdentifiers[0].Service, stateObject.Header?.CommIdentifiers[0]).ConfigureAwait(false);
+                //}
+                //else
+                //{
+                    //_ = Controller.Connector.PublishAsync(serializedResponse, stateObject.Header, ServiceType.Servicer).ConfigureAwait(false);
+                //}
+                //_ = Controller.LoggingClient.LogInfoAsync($"Request completed. Sending to broker.");
 
             }
             else

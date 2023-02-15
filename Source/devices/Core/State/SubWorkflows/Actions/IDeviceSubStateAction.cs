@@ -10,7 +10,7 @@ namespace Devices.Core.State.SubWorkflows.Actions
     {
         bool WorkflowCutoff { get; }
         StateException LastException { get; }
-        IDeviceSubStateController Controller { get; }
+        IDALSubStateController Controller { get; }
         DeviceSubWorkflowState WorkflowStateType { get; }
         CancellationToken CancellationToken { get; }
         SubStateActionLaunchRules LaunchRules { get; }

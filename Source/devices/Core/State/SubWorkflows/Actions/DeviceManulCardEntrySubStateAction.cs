@@ -15,7 +15,7 @@ namespace Devices.Core.State.SubWorkflows.Actions
     {
         public override DeviceSubWorkflowState WorkflowStateType => ManualCardEntry;
 
-        public DeviceManualCardEntrySubStateAction(IDeviceSubStateController _) : base(_) { }
+        public DeviceManualCardEntrySubStateAction(IDALSubStateController _) : base(_) { }
 
         public override SubStateActionLaunchRules LaunchRules => new SubStateActionLaunchRules
         {

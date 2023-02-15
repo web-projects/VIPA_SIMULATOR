@@ -35,7 +35,7 @@ namespace Devices.Sdk.Features.Internal.DALFeatures
             {
                 if (workflowMap.ContainsKey(bag.Key))
                 {
-                    throw new DALFeatureDuplicateKeyException(bag.Key.ToString(), "A duplicate key entry exists for an existing sub-workflow state.");
+                    //throw new DALFeatureDuplicateKeyException(bag.Key.ToString(), "A duplicate key entry exists for an existing sub-workflow state.");
                 }
                 workflowMap.Add(bag.Key, bag.Value);
             }

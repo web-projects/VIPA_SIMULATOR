@@ -1,5 +1,5 @@
-﻿using IPA5.XO.ProtoBuf;
-using LinkRequest = IPA5.XO.ProtoBuf.LinkRequest;
+﻿using XO.ProtoBuf;
+using LinkRequest = Common.XO.Requests.LinkRequest;
 
 namespace Devices.Common.State
 {

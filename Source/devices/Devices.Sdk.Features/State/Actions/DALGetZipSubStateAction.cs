@@ -1,11 +1,10 @@
-﻿using Core.Constants;
-using Devices.Common;
+﻿using Common.XO.Device;
+using Common.XO.Requests;
+using Devices.Common.Constants;
 using Devices.Common.Helpers;
+using Devices.Common.Interfaces;
 using Devices.Common.State;
 using Devices.Sdk.Features.Cancellation;
-using Common.XO.Common.DAL;
-using Common.XO.Enums.Legacy;
-using Common.XO.Requests;
 using System.Threading.Tasks;
 using static Devices.Sdk.Features.State.DALSubWorkflowState;
 
@@ -26,7 +25,7 @@ namespace Devices.Sdk.Features.State.Actions
         {
             if (StateObject is null)
             {
-                _ = Controller.LoggingClient.LogErrorAsync("Unable to find a state object while attempting to get ZIP from device.");
+                //_ = Controller.LoggingClient.LogErrorAsync("Unable to find a state object while attempting to get ZIP from device.");
                 _ = Error(this);
             }
             else
@@ -41,13 +40,13 @@ namespace Devices.Sdk.Features.State.Actions
                 {
                     cardDevice.SetRequestHeader(commObject.Header);
                     var timeoutPolicy = await cancellationBroker.ExecuteWithTimeoutAsync<LinkRequest>(
-                        _ => cardDevice.GetZip(linkRequest, _),
+                        _ => cardDevice.GetZip(linkRequest, _, this.CancellationToken),
                         linkRequest.GetAppropriateTimeoutSeconds(Timeouts.DALCardCaptureTimeout),
                         this.CancellationToken);
 
                     if (timeoutPolicy.Outcome == Polly.OutcomeType.Failure)
                     {
-                        _ = Controller.LoggingClient.LogErrorAsync($"Unable to obtain ZIP from device - '{Controller.DeviceEvent}'.", StatusType.DALTimeOuts);
+                        //_ = Controller.LoggingClient.LogErrorAsync($"Unable to obtain ZIP from device - '{Controller.DeviceEvent}'.", StatusType.DALTimeOuts);
                         BuildSubworkflowErrorResponse(linkRequest, cardDevice.DeviceInformation, Controller.DeviceEvent);
                     }
                 }

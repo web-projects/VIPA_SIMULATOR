@@ -11,15 +11,15 @@ namespace Devices.Core.State.SubWorkflows.Actions.Controllers
     {
         private readonly IDeviceSubStateManager manager;
 
-        private Dictionary<DeviceSubWorkflowState, Func<IDeviceSubStateController, IDeviceSubStateAction>> workflowMap =
-            new Dictionary<DeviceSubWorkflowState, Func<IDeviceSubStateController, IDeviceSubStateAction>>(
-                new Dictionary<DeviceSubWorkflowState, Func<IDeviceSubStateController, IDeviceSubStateAction>>
+        private Dictionary<DeviceSubWorkflowState, Func<IDALSubStateController, IDeviceSubStateAction>> workflowMap =
+            new Dictionary<DeviceSubWorkflowState, Func<IDALSubStateController, IDeviceSubStateAction>>(
+                new Dictionary<DeviceSubWorkflowState, Func<IDALSubStateController, IDeviceSubStateAction>>
                 {
-                    [GetStatus] = (IDeviceSubStateController _) => new DeviceGetStatusSubStateAction(_),
-                    [AbortCommand] = (IDeviceSubStateController _) => new DeviceAbortCommandSubStateAction(_),
-                    [ManualCardEntry] = (IDeviceSubStateController _) => new DeviceManualCardEntrySubStateAction(_),
-                    [SanityCheck] = (IDeviceSubStateController _) => new DeviceSanityCheckSubStateAction(_),
-                    [RequestComplete] = (IDeviceSubStateController _) => new DeviceRequestCompleteSubStateAction(_)
+                    [GetStatus] = (IDALSubStateController _) => new DeviceGetStatusSubStateAction(_),
+                    [AbortCommand] = (IDALSubStateController _) => new DeviceAbortCommandSubStateAction(_),
+                    [ManualCardEntry] = (IDALSubStateController _) => new DeviceManualCardEntrySubStateAction(_),
+                    [SanityCheck] = (IDALSubStateController _) => new DeviceSanityCheckSubStateAction(_),
+                    [RequestComplete] = (IDALSubStateController _) => new DeviceRequestCompleteSubStateAction(_)
                 }
         );
 
@@ -28,14 +28,14 @@ namespace Devices.Core.State.SubWorkflows.Actions.Controllers
         public DeviceStateActionSubControllerImpl(IDeviceSubStateManager manager) => (this.manager) = (manager);
 
         public IDeviceSubStateAction GetFinalState()
-            => workflowMap[RequestComplete](manager as IDeviceSubStateController);
+            => workflowMap[RequestComplete](manager as IDALSubStateController);
 
         public IDeviceSubStateAction GetNextAction(IDeviceSubStateAction stateAction)
             => GetNextAction(stateAction.WorkflowStateType);
 
         public IDeviceSubStateAction GetNextAction(DeviceSubWorkflowState state)
         {
-            IDeviceSubStateController controller = manager as IDeviceSubStateController;
+            IDALSubStateController controller = manager as IDALSubStateController;
             if (currentStateAction == null)
             {
                 return (currentStateAction = workflowMap[state](controller));

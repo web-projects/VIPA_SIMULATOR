@@ -1,18 +1,21 @@
-﻿using Devices.Common;
+﻿using Common.XO.Private;
+using Common.XO.Requests.DAL;
+using Core.Constants;
+using Devices.Common.Constants;
 using Devices.Common.Helpers;
+using Devices.Common.Interfaces;
 using Devices.Sdk.Features.Cancellation;
 using Devices.Sdk.Features.Internal.State;
 using Devices.Sdk.Features.State;
 using Devices.Sdk.Features.State.Providers;
-using Common.XO.Requests.DAL;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using LinkActionResponse = XO.Responses.LinkActionResponse;
-using LinkRequest = XO.Requests.LinkRequest;
-using IPA5.XO.ProtoBuf;
+using XO.ProtoBuf;
+using LinkActionResponse = Common.XO.Responses.LinkActionResponse;
+using LinkRequest = Common.XO.Requests.LinkRequest;
 
 namespace Devices.Sdk.Features.Internal.PreProcessor
 {
@@ -33,7 +36,7 @@ namespace Devices.Sdk.Features.Internal.PreProcessor
             }
             catch (Exception ex)
             {
-                _ = context.LoggingClient.LogErrorAsync(ex.Message, ex);
+                //_ = context.LoggingClient.LogErrorAsync(ex.Message, ex);
             }
             return false;
         }
@@ -47,7 +50,7 @@ namespace Devices.Sdk.Features.Internal.PreProcessor
             }
             else
             {
-                _ = context.LoggingClient.LogErrorAsync("Unable to find SubStateControllerHandlerFunction");
+                //_ = context.LoggingClient.LogErrorAsync("Unable to find SubStateControllerHandlerFunction");
             }
         }
 
@@ -95,14 +98,14 @@ namespace Devices.Sdk.Features.Internal.PreProcessor
                 return;
             }
 
-            try
-            {
-                subStateController.CancelCurrentSubStateAction(DeviceEvent.NetworkConnectionFailure);
-            }
-            catch (Exception ex)
-            {
-                _ = subStateController.LoggingClient.LogErrorAsync("Exception occurred attempting to cancel payment from network failure.", ex);
-            }
+            //try
+            //{
+            //    subStateController.CancelCurrentSubStateAction(DeviceEvent.NetworkConnectionFailure);
+            //}
+            //catch (Exception ex)
+            //{
+            //    _ = subStateController.LoggingClient.LogErrorAsync("Exception occurred attempting to cancel payment from network failure.", ex);
+            //}
         }
 
         public void CancelPayment(CommunicationHeader header, LinkRequest request, IDALSubStateController subStateController)
@@ -120,22 +123,22 @@ namespace Devices.Sdk.Features.Internal.PreProcessor
                 //Respond to Servicer that Cancel Payment was issued.
                 PopulateCancelResponse(request);
 
-                if (IsTestPedRequest(request))
-                {
-                    _ = subStateController.LoggingClient.LogInfoAsync("TestPED request cancelled by operator; do not forward onto Servicer.");
-                }
-                else if (subStateController.Connector is { })
-                {
-                    _ = subStateController.Connector.PublishAsync(JsonConvert.SerializeObject(request), header, ServiceType.Servicer);
-                }
-                else
-                {
-                    _ = subStateController.LoggingClient.LogErrorAsync("DALPreProcessor Publishing Error: subStateController has no Connector!");
-                }
+                //if (IsTestPedRequest(request))
+                //{
+                //    _ = subStateController.LoggingClient.LogInfoAsync("TestPED request cancelled by operator; do not forward onto Servicer.");
+                //}
+                //else if (subStateController.Connector is { })
+                //{
+                //    _ = subStateController.Connector.PublishAsync(JsonConvert.SerializeObject(request), header, ServiceType.Servicer);
+                //}
+                //else
+                //{
+                //    _ = subStateController.LoggingClient.LogErrorAsync("DALPreProcessor Publishing Error: subStateController has no Connector!");
+                //}
             }
             catch (Exception ex)
             {
-                _ = subStateController.LoggingClient.LogErrorAsync("Exception occurred attempting cancel payment.", ex);
+                //_ = subStateController.LoggingClient.LogErrorAsync("Exception occurred attempting cancel payment.", ex);
             }
         }
 
@@ -153,7 +156,7 @@ namespace Devices.Sdk.Features.Internal.PreProcessor
             }
             catch (Exception ex)
             {
-                _ = subStateController.LoggingClient.LogErrorAsync("Exception occurred attempting to time out payment.", ex);
+                //_ = subStateController.LoggingClient.LogErrorAsync("Exception occurred attempting to time out payment.", ex);
             }
         }
 
@@ -179,7 +182,7 @@ namespace Devices.Sdk.Features.Internal.PreProcessor
             }
             catch (Exception ex)
             {
-                _ = subStateController.LoggingClient.LogErrorAsync($"DALPreProcessor Error: {ex.Message}", ex);
+                //_ = subStateController.LoggingClient.LogErrorAsync($"DALPreProcessor Error: {ex.Message}", ex);
             }
         }
 
@@ -205,27 +208,27 @@ namespace Devices.Sdk.Features.Internal.PreProcessor
                 {
                     request.LinkObjects.LinkActionResponseList[0].DALActionResponse = new LinkDALActionResponse();
                 }
-                request.LinkObjects.LinkActionResponseList[0].DALActionResponse.Status = DalStatusCodes.DalBusy;
+                request.LinkObjects.LinkActionResponseList[0].DALActionResponse.Status = DalStatusCodes.DeviceBusy;
 
-                if (subStateController.Connector is { })
-                {
-                    _ = subStateController.Connector.PublishAsync(JsonConvert.SerializeObject(request), header, ServiceType.Servicer);
-                }
-                else
-                {
-                    _ = subStateController.LoggingClient.LogErrorAsync($"DALPreProcessor Publishing Error: subStateController has no Connector!");
-                }
+                //if (subStateController.Connector is { })
+                //{
+                //    _ = subStateController.Connector.PublishAsync(JsonConvert.SerializeObject(request), header, ServiceType.Servicer);
+                //}
+                //else
+                //{
+                //    _ = subStateController.LoggingClient.LogErrorAsync($"DALPreProcessor Publishing Error: subStateController has no Connector!");
+                //}
             }
             catch (Exception ex)
             {
-                _ = subStateController.LoggingClient.LogErrorAsync($"DALPreProcessor Error: {ex.Message}", ex);
+                //_ = subStateController.LoggingClient.LogErrorAsync($"DALPreProcessor Error: {ex.Message}", ex);
             }
         }
 
-        private static bool IsTestPedRequest(LinkRequest request)
-            => request.TCCustID == MonitorConstants.TestPedCustId
-                && string.Equals(request.TCPassword, MonitorConstants.TestPedPassword, StringComparison.Ordinal)
-                && (request.Actions?.FirstOrDefault()?.PaymentRequest?.Demo ?? false);
+        //private static bool IsTestPedRequest(LinkRequest request)
+        //    => request.TCCustID == MonitorConstants.TestPedCustId
+        //        && string.Equals(request.TCPassword, MonitorConstants.TestPedPassword, StringComparison.Ordinal)
+        //        && (request.Actions?.FirstOrDefault()?.PaymentRequest?.Demo ?? false);
 
         private void PopulateCancelResponse(LinkRequest request)
         {

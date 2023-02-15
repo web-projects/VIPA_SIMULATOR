@@ -10,6 +10,8 @@ namespace Devices.Common.Constants
         public static int DALCardCaptureTimeout = 90;
         public static int DALGetStatusTimeout = 10;
         public static int DALDeviceRecoveryTimeout = 30;
+        public static int DALACHCaptureTimeoutSec = 60;
+        public static int DALManualCaptureTimeout = 60;
 
         public static int ServicerRequestDefaultTimeout = 300;
     }

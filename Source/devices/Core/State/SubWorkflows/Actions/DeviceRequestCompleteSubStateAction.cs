@@ -13,7 +13,7 @@ namespace Devices.Core.State.SubWorkflows.Actions
 
         public override DeviceSubWorkflowState WorkflowStateType => DeviceSubWorkflowState.RequestComplete;
 
-        public DeviceRequestCompleteSubStateAction(IDeviceSubStateController _) : base(_) { }
+        public DeviceRequestCompleteSubStateAction(IDALSubStateController _) : base(_) { }
 
         private void ProcessCompletionActions(LinkRequest linkResponse)
         {

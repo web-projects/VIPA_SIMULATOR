@@ -1,20 +1,17 @@
-﻿using IPA5.Communication.Connector;
-using IPA5.Core.CDB;
-using IPA5.Core.Config;
-using IPA5.Core.Patterns.Queuing;
+﻿using Common.Core.Patterns.Queuing;
 using Devices.Common;
-using Devices.Common.Config;
-using Devices.Common.Priority;
-using Devices.Common.SerialPort;
+using Devices.Common.AppConfig;
+using Devices.Common.Helpers;
+using Devices.Common.Interfaces;
 using Devices.Common.State;
+using Devices.Core.SerialPort.Interfaces;
+using Devices.Core.State.Actions.Preprocessing;
 using Devices.Sdk.Features.Cancellation;
 using Devices.Sdk.Features.Internal.ErrorManager;
 using Devices.Sdk.Features.Internal.State.Actions;
 using Devices.Sdk.Features.Interrupt;
 using Devices.Sdk.Features.State;
 using Devices.Sdk.Features.State.Providers;
-using IPA5.Diagnostics.Client;
-using IPA5.LoggingService.Client;
 using System.Collections.Generic;
 
 namespace Devices.Sdk.Features.Internal.State
@@ -32,13 +29,13 @@ namespace Devices.Sdk.Features.Internal.State
         IErrorManager ErrorManager { get; }
         IInterruptManager InterruptManager { get; }
         PriorityQueue<PriorityQueueDeviceEvents> PriorityQueue { get; set; }
-        ILoggingServiceClient LoggingClient { get; }
-        IDiagnosticClient DiagnosticClient { get; }
-        IBrokerConnector Connector { get; }
-        ICdbAttributeProvider CdbAttributeProvider { get; set; }
+        //ILoggingServiceClient LoggingClient { get; }
+        //IDiagnosticClient DiagnosticClient { get; }
+        //IBrokerConnector Connector { get; }
+        //ICdbAttributeProvider CdbAttributeProvider { get; set; }
         IDALPreProcessor PreProcessor { get; }
         CommunicationObject LastGetStatus { get; set; }
-        IIPA5SharedConfiguration SharedConfiguration { get; }
+        //IPA5SharedConfiguration SharedConfiguration { get; }
 
         void SetTargetDevice(IPaymentDevice targetDevice);
         void SetTargetDevices(List<IPaymentDevice> targetDevices);

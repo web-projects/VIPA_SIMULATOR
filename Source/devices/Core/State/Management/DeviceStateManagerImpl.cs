@@ -92,7 +92,7 @@ namespace Devices.Core.State.Management
         private static bool subscribed { get; set; }
         private bool deviceNeedsToBeAdded;
 
-        private IDeviceSubStateController subStateController;
+        private IDALSubStateController subStateController;
         private IDeviceStateAction currentStateAction;
         private IDeviceStateActionController stateActionController;
         private readonly Stack<object> savedStackState = new Stack<object>();
@@ -163,7 +163,7 @@ namespace Devices.Core.State.Management
             await AdvanceActionWithState(state);
         }
 
-        public void Hook(IDeviceSubStateController controller) => subStateController = (controller);
+        public void Hook(IDALSubStateController controller) => subStateController = (controller);
 
         public void UnHook() => subStateController = (null);
 

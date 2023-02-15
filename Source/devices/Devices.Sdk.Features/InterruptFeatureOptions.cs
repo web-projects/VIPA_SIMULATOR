@@ -1,7 +1,7 @@
-﻿using Devices.Common;
+﻿using Devices.Common.Interfaces;
 using Devices.Sdk.Features.State;
-using Common.XO.ProtoBuf;
-using LinkRequest = XO.Requests.LinkRequest;
+using XO.ProtoBuf;
+using LinkRequest = Common.XO.Requests.LinkRequest;
 
 namespace Devices.Sdk.Features
 {

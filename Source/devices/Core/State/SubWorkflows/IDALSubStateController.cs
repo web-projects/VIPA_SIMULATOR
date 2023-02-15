@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace Devices.Core.State.SubWorkflows
 {
-    internal interface IDeviceSubStateController : IStateControlTrigger<IDeviceSubStateAction>
+    internal interface IDALSubStateController : IStateControlTrigger<IDeviceSubStateAction>
     {
         DeviceSection Configuration { get; }
         //ILoggingServiceClient LoggingClient { get; }

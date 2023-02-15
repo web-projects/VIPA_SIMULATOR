@@ -16,7 +16,7 @@ namespace Devices.Core.State.SubWorkflows.Actions
     {
         public override DeviceSubWorkflowState WorkflowStateType => SanityCheck;
 
-        public DeviceSanityCheckSubStateAction(IDeviceSubStateController _) : base(_) { }
+        public DeviceSanityCheckSubStateAction(IDALSubStateController _) : base(_) { }
 
         private async Task RecoverDevice(LinkRequest linkRequest, IDeviceCancellationBroker cancellationBroker)
         {

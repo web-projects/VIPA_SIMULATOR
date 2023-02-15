@@ -29,7 +29,7 @@ namespace Devices.Core.Helpers
             };
         }
 
-        public static void SubworkflowErrorResponse(DeviceInformation deviceInformation, LinkRequest linkRequest, string type, string code, string description)
+        public static void SubworkflowErrorResponse(DeviceInformation deviceInformation, LinkRequest linkRequest, string type, string code, string description, bool setDeviceError = true)
         {
             if (linkRequest != null)
             {

@@ -1,19 +1,21 @@
-﻿using IPA5.Core.Constants;
+﻿using Common.XO.Device;
+using Common.XO.Private;
+using Common.XO.Requests.DAL;
 using Devices.Common;
+using Devices.Common.Constants;
 using Devices.Common.Helpers;
+using Devices.Common.Interfaces;
 using Devices.Common.State;
 using Devices.Sdk.Features.Cancellation;
-using Common.XO.Common.DAL;
-using Common.XO.Enums.Legacy;
-using Common.XO.ProtoBuf;
-using Common.XO.Requests.DAL;
 using Newtonsoft.Json;
 using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using XO.Device;
+using XO.ProtoBuf;
 using static Devices.Sdk.Features.State.DALSubWorkflowState;
-using LinkRequest = XO.Requests.LinkRequest;
+using LinkRequest = Common.XO.Requests.LinkRequest;
 
 namespace Devices.Sdk.Features.State.Actions
 {
@@ -61,7 +63,7 @@ namespace Devices.Sdk.Features.State.Actions
         {
             if (StateObject is null)
             {
-                _ = Controller.LoggingClient.LogErrorAsync("Unable to find a state object while attempting to obtain card data.");
+                //_ = Controller.LoggingClient.LogErrorAsync("Unable to find a state object while attempting to obtain card data.");
                 _ = Error(this);
             }
             else
@@ -76,8 +78,8 @@ namespace Devices.Sdk.Features.State.Actions
                 targetDevice?.SetRequestHeader(commObject.Header);
                 if (targetDevice is ICardDevice cardDevice)
                 {
-                    var timeoutPolicy = await cancellationBroker.ExecuteWithTimeoutAsync<LinkRequest>(
-                        _ => cardDevice.GetCardData(linkRequest, _),
+                    var timeoutPolicy = await cancellationBroker.ExecuteWithTimeoutAsync(
+                        async (_) => await cardDevice.GetCardDataAsync(linkRequest, _),
                         linkRequest.GetAppropriateTimeoutSeconds(Timeouts.DALCardCaptureTimeout),
                         CancellationToken);
 
@@ -104,7 +106,7 @@ namespace Devices.Sdk.Features.State.Actions
 
                     if (timeoutPolicy.Outcome == Polly.OutcomeType.Failure)
                     {
-                        _ = Controller.LoggingClient.LogErrorAsync($"Unable to obtain data from card device - '{Controller.DeviceEvent}'.", StatusType.DALTimeOuts);
+                        //_ = Controller.LoggingClient.LogErrorAsync($"Unable to obtain data from card device - '{Controller.DeviceEvent}'.", StatusType.DALTimeOuts);
                         BuildSubworkflowErrorResponse(linkRequest, cardDevice.DeviceInformation, Controller.DeviceEvent, false);
                     }
                 }
@@ -116,7 +118,7 @@ namespace Devices.Sdk.Features.State.Actions
                         CancellationToken);
                     if (timeoutPolicy.Outcome == Polly.OutcomeType.Failure)
                     {
-                        _ = Controller.LoggingClient.LogErrorAsync($"Unable to obtain data from check device - '{Controller.DeviceEvent}'.", StatusType.DALTimeOuts);
+                        //_ = Controller.LoggingClient.LogErrorAsync($"Unable to obtain data from check device - '{Controller.DeviceEvent}'.", StatusType.DALTimeOuts);
                         BuildSubworkflowErrorResponse(linkRequest, checkDevice.DeviceInformation, Controller.DeviceEvent, false);
                     }
                 }
@@ -144,43 +146,43 @@ namespace Devices.Sdk.Features.State.Actions
 
         public override void RequestReceived(CommunicationHeader header, LinkRequest request)
         {
-            _ = Controller.LoggingClient.LogInfoAsync($"Received from {request}");
+            //_ = Controller.LoggingClient.LogInfoAsync($"Received from {request}");
 
             switch (request.Actions.First().DALActionRequest.DALAction)
             {
                 case LinkDALActionType.StartManualPayment:
+                {
+                    LinkDeviceIdentifier deviceIdentifier = request.GetDeviceIdentifier();
+                    IPaymentDevice targetDevice = FindTargetDevice(deviceIdentifier);
+
+                    if (targetDevice is ICardDevice cardDevice)
                     {
-                        LinkDeviceIdentifier deviceIdentifier = request.GetDeviceIdentifier();
-                        IPaymentDevice targetDevice = FindTargetDevice(deviceIdentifier);
+                        InterruptFeatureOptions options = new InterruptFeatureOptions()
+                             .SetRequest(header, request)
+                             .SetController(Controller)
+                             .SetTargetDevice(cardDevice);
 
-                        if (targetDevice is ICardDevice cardDevice)
+                        IDeviceInterruptFeature manualPaymentFeature = Controller.GetInterruptFeature(SupportedFeatures.ManualPaymentFeature);
+                        Task.Run(async () =>
                         {
-                            InterruptFeatureOptions options = new InterruptFeatureOptions()
-                                 .SetRequest(header, request)
-                                 .SetController(Controller)
-                                 .SetTargetDevice(cardDevice);
-
-                            IDeviceInterruptFeature manualPaymentFeature = Controller.GetInterruptFeature(SupportedFeatures.ManualPaymentFeature);
-                            Task.Run(async () =>
-                            {
-                                await Controller.ExecuteFeature(manualPaymentFeature, options);
-                                // LinkRequest could be null in a Manual Entry selection via Monitor before device is ready to process transaction
-                                Controller.RequestWorkflowCancellation();       //This will only cancel the main workflow!
-                            });
-                        }
-                        else if (targetDevice is ICheckDevice checkDevice)
-                        {
-                            checkDevice.DeviceSetIdle();        //Don't have a manual payment mode for this, simple cancel waiting for check
-                        }
-
-                        break;
+                            await Controller.ExecuteFeature(manualPaymentFeature, options);
+                            // LinkRequest could be null in a Manual Entry selection via Monitor before device is ready to process transaction
+                            Controller.RequestWorkflowCancellation();       //This will only cancel the main workflow!
+                        });
                     }
+                    else if (targetDevice is ICheckDevice checkDevice)
+                    {
+                        checkDevice.DeviceSetIdle();        //Don't have a manual payment mode for this, simple cancel waiting for check
+                    }
+
+                    break;
+                }
                 default:
-                    {
-                        _ = Controller.LoggingClient.LogWarnAsync($"DALAction {request.Actions.First().DALActionRequest.DALAction} not implemented.");
-                        break;
-                    }
-            }         
+                {
+                    //_ = Controller.LoggingClient.LogWarnAsync($"DALAction {request.Actions.First().DALActionRequest.DALAction} not implemented.");
+                    break;
+                }
+            }
         }
     }
 }

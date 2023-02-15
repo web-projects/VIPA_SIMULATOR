@@ -1,5 +1,5 @@
 ﻿syntax = "proto3";
-package IPA5.XO.ProtoBuf;
+package XO.ProtoBuf;
 
 message ChannelData {
 	BrokerMessage BrokerMessage = 1;

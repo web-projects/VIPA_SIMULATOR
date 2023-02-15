@@ -3,12 +3,13 @@ using Common.XO.Private;
 using Devices.Common;
 using Devices.Common.Helpers;
 using Devices.Common.Interfaces;
+using Devices.Common.State;
 using Devices.Core.Helpers;
 using Devices.Core.State.SubWorkflows.Helpers;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using static Common.XO.ProtoBuf.LogMessage.Types;
+using XO.ProtoBuf;
 using static XO.ProtoBuf.LogMessage.Types;
 using LinkActionResponse = Common.XO.Responses.LinkActionResponse;
 using LinkErrorValue = Common.XO.Responses.LinkErrorValue;
@@ -16,7 +17,7 @@ using LinkRequest = Common.XO.Requests.LinkRequest;
 
 namespace Devices.Sdk.Features.State.Actions
 {
-    public abstract class DALBaseSubStateAction : IDeviceSubStateAction
+    public abstract class DALBaseSubStateAction : IDALSubStateAction
     {
         public virtual bool WorkflowCutoff { get; }
         public StateException LastException { get; set; }
@@ -54,9 +55,10 @@ namespace Devices.Sdk.Features.State.Actions
 
         public void SetCancellationToken(CancellationToken cancellationToken) => (CancellationToken) = (cancellationToken);
 
-        //public virtual void RequestReceived(CommunicationHeader header, LinkRequest request)
-        //{
-        //}
+        public virtual void RequestReceived(CommunicationHeader header, LinkRequest request)
+        {
+        
+        }
 
         public virtual bool RequestSupported(LinkRequest request) => false;
 
@@ -74,7 +76,7 @@ namespace Devices.Sdk.Features.State.Actions
         {
             if (deviceEvent == DeviceEvent.CancelKeyPressed)
             {
-                _ = Controller.LoggingClient.LogInfoAsync($"device event received: {deviceEvent} from SN: {deviceInformation.SerialNumber}");
+                //_ = Controller.LoggingClient.LogInfoAsync($"device event received: {deviceEvent} from SN: {deviceInformation.SerialNumber}");
             }
         }
 
@@ -82,7 +84,7 @@ namespace Devices.Sdk.Features.State.Actions
         {
             if (comPortEvent == PortEventType.Removal)
             {
-                _ = Controller.LoggingClient.LogInfoAsync($"device event received: {comPortEvent} on port: {portNumber}");
+                //_ = Controller.LoggingClient.LogInfoAsync($"device event received: {comPortEvent} on port: {portNumber}");
             }
 
             return Task.CompletedTask;
@@ -110,7 +112,7 @@ namespace Devices.Sdk.Features.State.Actions
             Controller.GetAvailableDevices()
         );
 
-        protected void UpdateRequestDeviceNotFound(XO.Requests.LinkRequest linkRequest, LinkDeviceIdentifier deviceIdentifier)
+        protected void UpdateRequestDeviceNotFound(LinkRequest linkRequest, LinkDeviceIdentifier deviceIdentifier)
         {
             if (deviceIdentifier != null)
             {
@@ -120,12 +122,12 @@ namespace Devices.Sdk.Features.State.Actions
                     Model = deviceIdentifier?.Model,
                     SerialNumber = deviceIdentifier?.SerialNumber,
                 };
-                _ = Controller.LoggingClient.LogErrorAsync($"Unable to obtain device information from request - '{DeviceDiscovery.NoDeviceMatched}'.");
+                //_ = Controller.LoggingClient.LogErrorAsync($"Unable to obtain device information from request - '{DeviceDiscovery.NoDeviceMatched}'.");
                 BuildSubworkflowErrorResponse(linkRequest, deviceInformation, Controller.DeviceEvent);
             }
             else
             {
-                _ = Controller.LoggingClient.LogErrorAsync($"Unable to obtain device information from request - '{DeviceDiscovery.NoDeviceSpecified}'.");
+                //_ = Controller.LoggingClient.LogErrorAsync($"Unable to obtain device information from request - '{DeviceDiscovery.NoDeviceSpecified}'.");
                 BuildSubworkflowErrorResponse(linkRequest, null, Controller.DeviceEvent);
             }
         }

@@ -20,6 +20,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 using StringValueAttribute = Devices.Common.Helpers.StringValueAttribute;
 
 namespace Devices.Verifone
@@ -36,6 +37,8 @@ namespace Devices.Verifone
         public event PublishEvent PublishEvent;
         public event DeviceEventHandler DeviceEventOccured;
         public event DeviceLogHandler DeviceLogHandler;
+        public event PublishEvent PublishMonitor;
+        public event DeviceLogHandler DeviceLogOccured;
 
         private VerifoneConnection VerifoneConnection { get; set; }
 
@@ -71,6 +74,8 @@ namespace Devices.Verifone
         bool EnableHMAC { get; set; }
 
         LinkDALRequestIPA5Object VipaVersions { get; set; }
+
+        public List<string> TransactionConfigurations => throw new NotImplementedException();
 
         public VerifoneDevice()
         {
@@ -535,6 +540,91 @@ namespace Devices.Verifone
             DeviceSetIdle();
 
             return linkRequest;
+        }
+
+        public LinkRequest PresentCard(LinkRequest request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ValueTask<LinkRequest> GetCardDataAsync(LinkRequest request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
+
+        public LinkRequest GetManualPANData(LinkRequest request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
+
+        public LinkRequest GetCreditOrDebit(LinkRequest request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
+
+        public LinkRequest GetPin(LinkRequest request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
+
+        public LinkRequest GetZip(LinkRequest request, CancellationToken cancellationToken, CancellationToken timeoutCancellationToken)
+        {
+            throw new NotImplementedException();
+        }
+
+        public LinkRequest RemoveCard(LinkRequest request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
+
+        public LinkRequest DeviceUI(LinkRequest request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
+
+        public LinkRequest StartPreSwipeMode(LinkRequest request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
+
+        public LinkRequest EndPreSwipeMode(LinkRequest request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
+
+        public LinkRequest PurgeHeldCardData(LinkRequest request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
+
+        bool IPaymentDevice.IsConnected(LinkRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        int IPaymentDevice.GetDeviceHealthStatus()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DeviceRecoveryWithMessagePreservation()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<LinkDeviceResponse> GetDeviceResponse(LinkDeviceResponse deviceInfo)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetRequestHeader(XO.ProtoBuf.CommunicationHeader header)
+        {
+            throw new NotImplementedException();
+        }
+
+        public LinkRequest GetStatus(LinkRequest request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion --- subworkflow mapping

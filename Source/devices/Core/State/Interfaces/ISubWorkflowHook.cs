@@ -4,7 +4,7 @@ namespace Devices.Core.State.Interfaces
 {
     internal interface ISubWorkflowHook
     {
-        void Hook(IDeviceSubStateController controller);
+        void Hook(IDALSubStateController controller);
         void UnHook();
     }
 }

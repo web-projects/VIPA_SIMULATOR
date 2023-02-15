@@ -15,7 +15,7 @@ namespace Devices.Core.State.SubWorkflows.Actions
     {
         public override DeviceSubWorkflowState WorkflowStateType => AbortCommand;
 
-        public DeviceAbortCommandSubStateAction(IDeviceSubStateController _) : base(_) { }
+        public DeviceAbortCommandSubStateAction(IDALSubStateController _) : base(_) { }
 
         public override SubStateActionLaunchRules LaunchRules => new SubStateActionLaunchRules
         {

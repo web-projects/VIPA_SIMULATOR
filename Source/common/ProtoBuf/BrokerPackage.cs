@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace IPA5.XO.ProtoBuf {
+namespace XO.ProtoBuf {
 
   /// <summary>Holder for reflection information generated from broker_package.proto</summary>
   public static partial class BrokerPackageReflection {
@@ -24,130 +24,127 @@ namespace IPA5.XO.ProtoBuf {
     static BrokerPackageReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChRicm9rZXJfcGFja2FnZS5wcm90bxIQSVBBNS5YTy5Qcm90b0J1ZiJFCgtD",
-            "aGFubmVsRGF0YRI2Cg1Ccm9rZXJNZXNzYWdlGAEgASgLMh8uSVBBNS5YTy5Q",
-            "cm90b0J1Zi5Ccm9rZXJNZXNzYWdlIvMBCg1Ccm9rZXJNZXNzYWdlEjUKBkhl",
-            "YWRlchgBIAEoCzIlLklQQTUuWE8uUHJvdG9CdWYuQ29tbXVuaWNhdGlvbkhl",
-            "YWRlchISCgpTdHJpbmdEYXRhGAIgASgJEjAKCFJlc3BvbnNlGAMgASgLMh4u",
-            "SVBBNS5YTy5Qcm90b0J1Zi5MaW5rUmVzcG9uc2USLgoHUmVxdWVzdBgEIAEo",
-            "CzIdLklQQTUuWE8uUHJvdG9CdWYuTGlua1JlcXVlc3QSNQoJSGVhcnRiZWF0",
-            "GAUgASgLMiIuSVBBNS5YTy5Qcm90b0J1Zi5IZWFydGJlYXRNZXNzYWdlImAK",
-            "EEhlYXJ0YmVhdE1lc3NhZ2USOQoPU291cmNlQ29tcG9uZW50GAEgASgLMiAu",
-            "SVBBNS5YTy5Qcm90b0J1Zi5Db21tSWRlbnRpZmllchIRCglDaGFubmVsSWQY",
-            "AiABKAkiygUKE0NvbW11bmljYXRpb25IZWFkZXISOAoLTWVzc2FnZVR5cGUY",
-            "ASABKA4yIy5JUEE1LlhPLlByb3RvQnVmLkNvbW11bmljYXRpb25UeXBlEjoK",
-            "DU1lc3NhZ2VBY3Rpb24YAiABKA4yIS5JUEE1LlhPLlByb3RvQnVmLkNvbW1N",
-            "ZXNzYWdlQ29kZUgAEjYKC0V2ZW50QWN0aW9uGAMgASgOMh8uSVBBNS5YTy5Q",
-            "cm90b0J1Zi5Db21tRXZlbnRDb2RlSAASOQoPQ29tbUlkZW50aWZpZXJzGAQg",
-            "AygLMiAuSVBBNS5YTy5Qcm90b0J1Zi5Db21tSWRlbnRpZmllchIgChhTZW5k",
-            "ZXJDb25uZWN0aW9uQ2xpZW50SWQYBSABKAkSGQoRR2xvYmFsQ29tcG9uZW50",
-            "SWQYBiABKAkSFAoMQ29ubmVjdGlvbklkGAcgASgJEg8KB1ZlcnNpb24YCCAB",
-            "KAkSMAoGU291cmNlGAkgASgLMiAuSVBBNS5YTy5Qcm90b0J1Zi5Db21tSWRl",
-            "bnRpZmllchI+ChRPQlNPTEVURV9EZXN0aW5hdGlvbhgKIAEoCzIgLklQQTUu",
-            "WE8uUHJvdG9CdWYuQ29tbUlkZW50aWZpZXISLAoIQ29tbUF1dGgYCyABKAsy",
-            "Gi5JUEE1LlhPLlByb3RvQnVmLkNvbW1BdXRoEj4KEUNvbmZpcm1hdGlvbkxl",
-            "dmVsGAwgASgOMiMuSVBBNS5YTy5Qcm90b0J1Zi5Db25maXJtYXRpb25MZXZl",
-            "bBIqCgVGbGFncxgNIAEoCzIbLklQQTUuWE8uUHJvdG9CdWYuQ29tbUZsYWdz",
-            "EioKBUhpbnRzGA4gASgLMhsuSVBBNS5YTy5Qcm90b0J1Zi5Db21tSGludHMS",
-            "GAoQSW5pdGlhbFJlcXVlc3RJZBgPIAEoCUIUChJFdmVudE1lc3NhZ2VBY3Rp",
-            "b24iMgoIQ29tbUF1dGgSEAoISnd0VG9rZW4YASABKAkSFAoMQXBpQ2xpZW50",
-            "S2V5GAIgASgJIrIDCg5Db21tSWRlbnRpZmllchIUCgxDb25uZWN0aW9uSWQY",
-            "ASABKAkSDwoHRG5zTmFtZRgCIAEoCRIMCgRJUHY0GAMgASgJEhAKCFVzZXJO",
-            "YW1lGAQgASgJEhcKD1dvcmtzdGF0aW9uTmFtZRgFIAEoCRIuCgdTZXJ2aWNl",
-            "GAYgASgOMh0uSVBBNS5YTy5Qcm90b0J1Zi5TZXJ2aWNlVHlwZRIMCgRJUHY2",
-            "GAcgASgJEhEKCUNoYW5uZWxJZBgIIAEoCRIyCgtDaGFubmVsVHlwZRgJIAEo",
-            "DjIdLklQQTUuWE8uUHJvdG9CdWYuQ2hhbm5lbFR5cGUSEgoKTGljZW5zZUtl",
-            "eRgKIAEoCRI8ChBMb29rdXBQcmVmZXJlbmNlGAsgASgOMiIuSVBBNS5YTy5Q",
-            "cm90b0J1Zi5Mb29rdXBQcmVmZXJlbmNlEhEKCUNvbXBhbnlJZBgMIAEoBRIa",
-            "ChJNYWNoaW5lRmluZ2VycHJpbnQYDSABKAkSDwoHSXNDbG91ZBgOIAEoCBIS",
-            "CgpBcHBWZXJzaW9uGA8gASgJEhUKDUJyb2tlck93bmVySWQYECABKAkiswEK",
-            "CUNvbW1GbGFncxITCgtNZXNzYWdlRmxhZxgBIAEoBRIbChNBY2tub3dsZWRn",
-            "ZW1lbnRGbGFnGAIgASgFEhUKDUhlYXJ0YmVhdEZsYWcYAyABKAUSEQoJVHJh",
-            "Y2VGbGFnGAQgASgFEjAKCEludGVybmFsGAUgASgLMh4uSVBBNS5YTy5Qcm90",
-            "b0J1Zi5Db21tUmVzZXJ2ZWQSGAoQU3Vic2NyaXB0aW9uRmxhZxgGIAEoBSK6",
-            "AQoJQ29tbUhpbnRzEjkKD0NvbW1JZGVudGlmaWVycxgBIAMoCzIgLklQQTUu",
-            "WE8uUHJvdG9CdWYuQ29tbUlkZW50aWZpZXISPwoKUGFyYW1ldGVycxgCIAMo",
-            "CzIrLklQQTUuWE8uUHJvdG9CdWYuQ29tbUhpbnRzLlBhcmFtZXRlcnNFbnRy",
-            "eRoxCg9QYXJhbWV0ZXJzRW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIg",
-            "ASgJOgI4ASKmAQoMQ29tbVJlc2VydmVkEhEKCVJlc2VydmVkMRgBIAEoCRIR",
-            "CglSZXNlcnZlZDIYAiABKAkSEQoJUmVzZXJ2ZWQzGAMgASgJEhEKCVJlc2Vy",
-            "dmVkNBgEIAEoCRIRCglSZXNlcnZlZDUYBSABKAUSEQoJUmVzZXJ2ZWQ2GAYg",
-            "ASgFEhEKCVJlc2VydmVkNxgHIAEoBRIRCglSZXNlcnZlZDgYCCABKAUiPAoM",
-            "Q29tbVJlc3BvbnNlEiwKBlN0YXR1cxgBIAEoCzIcLklQQTUuWE8uUHJvdG9C",
-            "dWYuQ29tbVN0YXR1cyJZCgpDb21tU3RhdHVzEjQKClN0YXR1c0NvZGUYASAB",
-            "KA4yIC5JUEE1LlhPLlByb3RvQnVmLkNvbW1TdGF0dXNDb2RlEhUKDVN0YXR1",
-            "c01lc3NhZ2UYAiABKAkiQgoLTGlua1JlcXVlc3QSEQoJTWVzc2FnZUlkGAEg",
-            "ASgJEg4KBkN1c3RJZBgCIAEoDRIQCghQYXNzd29yZBgDIAEoCSKMAQoMTGlu",
-            "a1Jlc3BvbnNlEhEKCU1lc3NhZ2VJZBgBIAEoCRIwCgZFcnJvcnMYAiADKAsy",
-            "IC5JUEE1LlhPLlByb3RvQnVmLkxpbmtFcnJvclZhbHVlEjcKCVJlc3BvbnNl",
-            "cxgDIAMoCzIkLklQQTUuWE8uUHJvdG9CdWYuTGlua0FjdGlvblJlc3BvbnNl",
+            "ChRicm9rZXJfcGFja2FnZS5wcm90bxILWE8uUHJvdG9CdWYiQAoLQ2hhbm5l",
+            "bERhdGESMQoNQnJva2VyTWVzc2FnZRgBIAEoCzIaLlhPLlByb3RvQnVmLkJy",
+            "b2tlck1lc3NhZ2Ui3wEKDUJyb2tlck1lc3NhZ2USMAoGSGVhZGVyGAEgASgL",
+            "MiAuWE8uUHJvdG9CdWYuQ29tbXVuaWNhdGlvbkhlYWRlchISCgpTdHJpbmdE",
+            "YXRhGAIgASgJEisKCFJlc3BvbnNlGAMgASgLMhkuWE8uUHJvdG9CdWYuTGlu",
+            "a1Jlc3BvbnNlEikKB1JlcXVlc3QYBCABKAsyGC5YTy5Qcm90b0J1Zi5MaW5r",
+            "UmVxdWVzdBIwCglIZWFydGJlYXQYBSABKAsyHS5YTy5Qcm90b0J1Zi5IZWFy",
+            "dGJlYXRNZXNzYWdlIlsKEEhlYXJ0YmVhdE1lc3NhZ2USNAoPU291cmNlQ29t",
+            "cG9uZW50GAEgASgLMhsuWE8uUHJvdG9CdWYuQ29tbUlkZW50aWZpZXISEQoJ",
+            "Q2hhbm5lbElkGAIgASgJIpgFChNDb21tdW5pY2F0aW9uSGVhZGVyEjMKC01l",
+            "c3NhZ2VUeXBlGAEgASgOMh4uWE8uUHJvdG9CdWYuQ29tbXVuaWNhdGlvblR5",
+            "cGUSNQoNTWVzc2FnZUFjdGlvbhgCIAEoDjIcLlhPLlByb3RvQnVmLkNvbW1N",
+            "ZXNzYWdlQ29kZUgAEjEKC0V2ZW50QWN0aW9uGAMgASgOMhouWE8uUHJvdG9C",
+            "dWYuQ29tbUV2ZW50Q29kZUgAEjQKD0NvbW1JZGVudGlmaWVycxgEIAMoCzIb",
+            "LlhPLlByb3RvQnVmLkNvbW1JZGVudGlmaWVyEiAKGFNlbmRlckNvbm5lY3Rp",
+            "b25DbGllbnRJZBgFIAEoCRIZChFHbG9iYWxDb21wb25lbnRJZBgGIAEoCRIU",
+            "CgxDb25uZWN0aW9uSWQYByABKAkSDwoHVmVyc2lvbhgIIAEoCRIrCgZTb3Vy",
+            "Y2UYCSABKAsyGy5YTy5Qcm90b0J1Zi5Db21tSWRlbnRpZmllchI5ChRPQlNP",
+            "TEVURV9EZXN0aW5hdGlvbhgKIAEoCzIbLlhPLlByb3RvQnVmLkNvbW1JZGVu",
+            "dGlmaWVyEicKCENvbW1BdXRoGAsgASgLMhUuWE8uUHJvdG9CdWYuQ29tbUF1",
+            "dGgSOQoRQ29uZmlybWF0aW9uTGV2ZWwYDCABKA4yHi5YTy5Qcm90b0J1Zi5D",
+            "b25maXJtYXRpb25MZXZlbBIlCgVGbGFncxgNIAEoCzIWLlhPLlByb3RvQnVm",
+            "LkNvbW1GbGFncxIlCgVIaW50cxgOIAEoCzIWLlhPLlByb3RvQnVmLkNvbW1I",
+            "aW50cxIYChBJbml0aWFsUmVxdWVzdElkGA8gASgJQhQKEkV2ZW50TWVzc2Fn",
+            "ZUFjdGlvbiIyCghDb21tQXV0aBIQCghKd3RUb2tlbhgBIAEoCRIUCgxBcGlD",
+            "bGllbnRLZXkYAiABKAkiowMKDkNvbW1JZGVudGlmaWVyEhQKDENvbm5lY3Rp",
+            "b25JZBgBIAEoCRIPCgdEbnNOYW1lGAIgASgJEgwKBElQdjQYAyABKAkSEAoI",
+            "VXNlck5hbWUYBCABKAkSFwoPV29ya3N0YXRpb25OYW1lGAUgASgJEikKB1Nl",
+            "cnZpY2UYBiABKA4yGC5YTy5Qcm90b0J1Zi5TZXJ2aWNlVHlwZRIMCgRJUHY2",
+            "GAcgASgJEhEKCUNoYW5uZWxJZBgIIAEoCRItCgtDaGFubmVsVHlwZRgJIAEo",
+            "DjIYLlhPLlByb3RvQnVmLkNoYW5uZWxUeXBlEhIKCkxpY2Vuc2VLZXkYCiAB",
+            "KAkSNwoQTG9va3VwUHJlZmVyZW5jZRgLIAEoDjIdLlhPLlByb3RvQnVmLkxv",
+            "b2t1cFByZWZlcmVuY2USEQoJQ29tcGFueUlkGAwgASgFEhoKEk1hY2hpbmVG",
+            "aW5nZXJwcmludBgNIAEoCRIPCgdJc0Nsb3VkGA4gASgIEhIKCkFwcFZlcnNp",
+            "b24YDyABKAkSFQoNQnJva2VyT3duZXJJZBgQIAEoCSKuAQoJQ29tbUZsYWdz",
+            "EhMKC01lc3NhZ2VGbGFnGAEgASgFEhsKE0Fja25vd2xlZGdlbWVudEZsYWcY",
+            "AiABKAUSFQoNSGVhcnRiZWF0RmxhZxgDIAEoBRIRCglUcmFjZUZsYWcYBCAB",
+            "KAUSKwoISW50ZXJuYWwYBSABKAsyGS5YTy5Qcm90b0J1Zi5Db21tUmVzZXJ2",
+            "ZWQSGAoQU3Vic2NyaXB0aW9uRmxhZxgGIAEoBSKwAQoJQ29tbUhpbnRzEjQK",
+            "D0NvbW1JZGVudGlmaWVycxgBIAMoCzIbLlhPLlByb3RvQnVmLkNvbW1JZGVu",
+            "dGlmaWVyEjoKClBhcmFtZXRlcnMYAiADKAsyJi5YTy5Qcm90b0J1Zi5Db21t",
+            "SGludHMuUGFyYW1ldGVyc0VudHJ5GjEKD1BhcmFtZXRlcnNFbnRyeRILCgNr",
+            "ZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBIqYBCgxDb21tUmVzZXJ2ZWQS",
+            "EQoJUmVzZXJ2ZWQxGAEgASgJEhEKCVJlc2VydmVkMhgCIAEoCRIRCglSZXNl",
+            "cnZlZDMYAyABKAkSEQoJUmVzZXJ2ZWQ0GAQgASgJEhEKCVJlc2VydmVkNRgF",
+            "IAEoBRIRCglSZXNlcnZlZDYYBiABKAUSEQoJUmVzZXJ2ZWQ3GAcgASgFEhEK",
+            "CVJlc2VydmVkOBgIIAEoBSI3CgxDb21tUmVzcG9uc2USJwoGU3RhdHVzGAEg",
+            "ASgLMhcuWE8uUHJvdG9CdWYuQ29tbVN0YXR1cyJUCgpDb21tU3RhdHVzEi8K",
+            "ClN0YXR1c0NvZGUYASABKA4yGy5YTy5Qcm90b0J1Zi5Db21tU3RhdHVzQ29k",
+            "ZRIVCg1TdGF0dXNNZXNzYWdlGAIgASgJIkIKC0xpbmtSZXF1ZXN0EhEKCU1l",
+            "c3NhZ2VJZBgBIAEoCRIOCgZDdXN0SWQYAiABKA0SEAoIUGFzc3dvcmQYAyAB",
+            "KAkiggEKDExpbmtSZXNwb25zZRIRCglNZXNzYWdlSWQYASABKAkSKwoGRXJy",
+            "b3JzGAIgAygLMhsuWE8uUHJvdG9CdWYuTGlua0Vycm9yVmFsdWUSMgoJUmVz",
+            "cG9uc2VzGAMgAygLMh8uWE8uUHJvdG9CdWYuTGlua0FjdGlvblJlc3BvbnNl",
             "Ij0KDkxpbmtFcnJvclZhbHVlEgwKBENvZGUYASABKAkSDAoEVHlwZRgCIAEo",
-            "CRIPCgdNZXNzYWdlGAMgASgJImwKEkxpbmtBY3Rpb25SZXNwb25zZRIRCglN",
-            "ZXNzYWdlSWQYASABKAkSEQoJUmVxdWVzdElkGAIgASgJEjAKBkVycm9ycxgD",
-            "IAMoCzIgLklQQTUuWE8uUHJvdG9CdWYuTGlua0Vycm9yVmFsdWUiTAoOQnJv",
-            "a2VyTWVzc2FnZXMSOgoRQnJva2VyTWVzc2FnZUxpc3QYASADKAsyHy5JUEE1",
-            "LlhPLlByb3RvQnVmLkJyb2tlck1lc3NhZ2UiLwoTSGVhcnRiZWF0VXBkYXRl",
-            "TGlzdBIYChBDb25uZWN0aW9uSWRMaXN0GAEgAygJIlMKFkdldENvbm5lY3Rp",
-            "b25zUmVzcG9uc2USOQoPQ29tbUlkZW50aWZpZXJzGAEgAygLMiAuSVBBNS5Y",
-            "Ty5Qcm90b0J1Zi5Db21tSWRlbnRpZmllcipkChFDb25maXJtYXRpb25MZXZl",
-            "bBIcChhVbmtub3duQ29uZmlybWF0aW9uTGV2ZWwQABIICgROb25lEAESFgoS",
-            "QnJva2VyQ29uZmlybWF0aW9uEAISDwoLRGVzdGluYXRpb24QAypmChFDb21t",
-            "dW5pY2F0aW9uVHlwZRIcChhVbmtub3duQ29tbXVuaWNhdGlvblR5cGUQABIS",
-            "Cg5BZG1pbmlzdHJhdGl2ZRABEgoKBlN5c3RlbRACEggKBERhdGEQAxIJCgVF",
-            "dmVudBAEKpoDCg9Db21tTWVzc2FnZUNvZGUSGgoWVW5rbm93bkNvbW1NZXNz",
-            "YWdlQ29kZRAAEg0KCVN1YnNjcmliZRABEg8KC1Vuc3Vic2NyaWJlEAISCwoH",
-            "UHVibGlzaBADEg8KC1JlcXVlc3REYXRhEAQSHgoaUHJvdmlkZVZlbG9jaXR5",
-            "Q2hlY2tSZXN1bHQQBRIjCh9Qcm92aWRlRGFsQXZhaWxhYmxlRGV2aWNlUmVz",
-            "dWx0EAYSFgoSVXBkYXRlQ29uZmlnQ3VzdGlkEAcSFwoTQXBwTWFuYWdlckJy",
-            "b2FkY2FzdBAIEh4KGlJlZ2lzdGVyQXBwTWFuYWdlckZ1bmN0aW9uEAkSHAoY",
-            "SW52b2tlQXBwTWFuYWdlckZ1bmN0aW9uEAoSGwoXTm90aWZ5QXBwTWFuYWdl",
-            "ck1lc3NhZ2UQCxIgChxVbnJlZ2lzdGVyQXBwTWFuYWdlckZ1bmN0aW9uEAwS",
-            "HQoZQXBwTWFuYWdlclNodXREb3duUmVxdWVzdBANEhsKF0FwcE1hbmFnZXJB",
-            "bGxvd1NodXREb3duEA4q4gIKDkNvbW1TdGF0dXNDb2RlEhkKFVVua25vd25D",
-            "b21tU3RhdHVzQ29kZRAAEhsKF1N1YnNjcmlwdGlvbkF1dGhTdWNjZXNzEAES",
-            "GwoXU3Vic2NyaXB0aW9uQXV0aEZhaWx1cmUQAhIoCiRTdWJzY3JpcHRpb25B",
-            "dXRoRmFpbGVkQmFkQ3JlZGVudGlhbHMQAxIuCipTdWJzY3JpcHRpb25BdXRo",
-            "RmFpbGVkSW52YWxpZERBTElkZW50aWZpZXIQBBIWChJVbnN1YnNjcmliZVN1",
-            "Y2Nlc3MQBRIWChJVbnN1YnNjcmliZUZhaWx1cmUQBhITCg9Db21tUG9zdFN1",
-            "Y2Nlc3MQBxITCg9Db21tUG9zdEZhaWx1cmUQCBISCg5Db21tUG9zdE5vV2Fp",
-            "dBAJEhMKD0NvbW1Qb3N0VGltZW91dBAKEh4KGkNvbW1Qb3N0RmFpbGVkSW52",
-            "YWxpZFRva2VuEAsqiQIKDUNvbW1FdmVudENvZGUSGAoUVW5rbm93bkNvbW1F",
-            "dmVudENvZGUQABIaChZCcm9rZXJTdWJzY3JpYmVTdWNjZXNzEAESFwoTQnJv",
-            "a2VyU3Vic2NyaWJlRmFpbBACEh4KGkxpc3RlbmVyTWVzc2FnZVNlbmRTdWNj",
-            "ZXNzEAMSGwoXTGlzdGVuZXJNZXNzYWdlU2VuZEZhaWwQBBITCg9MaXN0ZW5l",
-            "ck9mZmxpbmUQBRISCg5MaXN0ZW5lck9ubGluZRAGEhoKFkRBTFBpblBhZEVu",
-            "dHJ5UmVjZWl2ZWQQBxITCg9EQUxDYXJkSW5zZXJ0ZWQQCBISCg5EQUxDYXJk",
-            "UmVtb3ZlZBAJKrcBCgtTZXJ2aWNlVHlwZRIWChJVbmtub3duU2VydmljZVR5",
-            "cGUQABIHCgNEQUwQARIVChFPQlNPTEVURV9MaXN0ZW5lchACEgwKCFNlcnZp",
-            "Y2VyEAMSDAoIUmVjZWl2ZXIQBBILCgdNb25pdG9yEAUSDQoJUHJvY2Vzc29y",
-            "EAYSDwoLQ3J5cHRvQ2FjaGUQBxIKCgZCcm9rZXIQCBIOCgpBcHBNYW5hZ2Vy",
-            "EAkSCwoHVXBkYXRlchAKKncKC0NoYW5uZWxUeXBlEhYKElVua25vd25DaGFu",
-            "bmVsVHlwZRAAEg4KCk5hbWVkUGlwZXMQARINCglXZWJTb2NrZXQQAhIMCghM",
-            "b25nUG9sbBADEhMKD0F6dXJlU2VydmljZUJ1cxAEEg4KCklzb21vcnBoaWMQ",
-            "BSpoChBMb29rdXBQcmVmZXJlbmNlEhAKDE5vdFNwZWNpZmllZBAAEhMKD1dv",
-            "cmtzdGF0aW9uTmFtZRABEgsKB0Ruc05hbWUQAhIICgRJUHY0EAMSCAoESVB2",
-            "NhAEEgwKCFVzZXJuYW1lEAViBnByb3RvMw=="));
+            "CRIPCgdNZXNzYWdlGAMgASgJImcKEkxpbmtBY3Rpb25SZXNwb25zZRIRCglN",
+            "ZXNzYWdlSWQYASABKAkSEQoJUmVxdWVzdElkGAIgASgJEisKBkVycm9ycxgD",
+            "IAMoCzIbLlhPLlByb3RvQnVmLkxpbmtFcnJvclZhbHVlIkcKDkJyb2tlck1l",
+            "c3NhZ2VzEjUKEUJyb2tlck1lc3NhZ2VMaXN0GAEgAygLMhouWE8uUHJvdG9C",
+            "dWYuQnJva2VyTWVzc2FnZSIvChNIZWFydGJlYXRVcGRhdGVMaXN0EhgKEENv",
+            "bm5lY3Rpb25JZExpc3QYASADKAkiTgoWR2V0Q29ubmVjdGlvbnNSZXNwb25z",
+            "ZRI0Cg9Db21tSWRlbnRpZmllcnMYASADKAsyGy5YTy5Qcm90b0J1Zi5Db21t",
+            "SWRlbnRpZmllcipkChFDb25maXJtYXRpb25MZXZlbBIcChhVbmtub3duQ29u",
+            "ZmlybWF0aW9uTGV2ZWwQABIICgROb25lEAESFgoSQnJva2VyQ29uZmlybWF0",
+            "aW9uEAISDwoLRGVzdGluYXRpb24QAypmChFDb21tdW5pY2F0aW9uVHlwZRIc",
+            "ChhVbmtub3duQ29tbXVuaWNhdGlvblR5cGUQABISCg5BZG1pbmlzdHJhdGl2",
+            "ZRABEgoKBlN5c3RlbRACEggKBERhdGEQAxIJCgVFdmVudBAEKpoDCg9Db21t",
+            "TWVzc2FnZUNvZGUSGgoWVW5rbm93bkNvbW1NZXNzYWdlQ29kZRAAEg0KCVN1",
+            "YnNjcmliZRABEg8KC1Vuc3Vic2NyaWJlEAISCwoHUHVibGlzaBADEg8KC1Jl",
+            "cXVlc3REYXRhEAQSHgoaUHJvdmlkZVZlbG9jaXR5Q2hlY2tSZXN1bHQQBRIj",
+            "Ch9Qcm92aWRlRGFsQXZhaWxhYmxlRGV2aWNlUmVzdWx0EAYSFgoSVXBkYXRl",
+            "Q29uZmlnQ3VzdGlkEAcSFwoTQXBwTWFuYWdlckJyb2FkY2FzdBAIEh4KGlJl",
+            "Z2lzdGVyQXBwTWFuYWdlckZ1bmN0aW9uEAkSHAoYSW52b2tlQXBwTWFuYWdl",
+            "ckZ1bmN0aW9uEAoSGwoXTm90aWZ5QXBwTWFuYWdlck1lc3NhZ2UQCxIgChxV",
+            "bnJlZ2lzdGVyQXBwTWFuYWdlckZ1bmN0aW9uEAwSHQoZQXBwTWFuYWdlclNo",
+            "dXREb3duUmVxdWVzdBANEhsKF0FwcE1hbmFnZXJBbGxvd1NodXREb3duEA4q",
+            "4gIKDkNvbW1TdGF0dXNDb2RlEhkKFVVua25vd25Db21tU3RhdHVzQ29kZRAA",
+            "EhsKF1N1YnNjcmlwdGlvbkF1dGhTdWNjZXNzEAESGwoXU3Vic2NyaXB0aW9u",
+            "QXV0aEZhaWx1cmUQAhIoCiRTdWJzY3JpcHRpb25BdXRoRmFpbGVkQmFkQ3Jl",
+            "ZGVudGlhbHMQAxIuCipTdWJzY3JpcHRpb25BdXRoRmFpbGVkSW52YWxpZERB",
+            "TElkZW50aWZpZXIQBBIWChJVbnN1YnNjcmliZVN1Y2Nlc3MQBRIWChJVbnN1",
+            "YnNjcmliZUZhaWx1cmUQBhITCg9Db21tUG9zdFN1Y2Nlc3MQBxITCg9Db21t",
+            "UG9zdEZhaWx1cmUQCBISCg5Db21tUG9zdE5vV2FpdBAJEhMKD0NvbW1Qb3N0",
+            "VGltZW91dBAKEh4KGkNvbW1Qb3N0RmFpbGVkSW52YWxpZFRva2VuEAsqiQIK",
+            "DUNvbW1FdmVudENvZGUSGAoUVW5rbm93bkNvbW1FdmVudENvZGUQABIaChZC",
+            "cm9rZXJTdWJzY3JpYmVTdWNjZXNzEAESFwoTQnJva2VyU3Vic2NyaWJlRmFp",
+            "bBACEh4KGkxpc3RlbmVyTWVzc2FnZVNlbmRTdWNjZXNzEAMSGwoXTGlzdGVu",
+            "ZXJNZXNzYWdlU2VuZEZhaWwQBBITCg9MaXN0ZW5lck9mZmxpbmUQBRISCg5M",
+            "aXN0ZW5lck9ubGluZRAGEhoKFkRBTFBpblBhZEVudHJ5UmVjZWl2ZWQQBxIT",
+            "Cg9EQUxDYXJkSW5zZXJ0ZWQQCBISCg5EQUxDYXJkUmVtb3ZlZBAJKrcBCgtT",
+            "ZXJ2aWNlVHlwZRIWChJVbmtub3duU2VydmljZVR5cGUQABIHCgNEQUwQARIV",
+            "ChFPQlNPTEVURV9MaXN0ZW5lchACEgwKCFNlcnZpY2VyEAMSDAoIUmVjZWl2",
+            "ZXIQBBILCgdNb25pdG9yEAUSDQoJUHJvY2Vzc29yEAYSDwoLQ3J5cHRvQ2Fj",
+            "aGUQBxIKCgZCcm9rZXIQCBIOCgpBcHBNYW5hZ2VyEAkSCwoHVXBkYXRlchAK",
+            "KncKC0NoYW5uZWxUeXBlEhYKElVua25vd25DaGFubmVsVHlwZRAAEg4KCk5h",
+            "bWVkUGlwZXMQARINCglXZWJTb2NrZXQQAhIMCghMb25nUG9sbBADEhMKD0F6",
+            "dXJlU2VydmljZUJ1cxAEEg4KCklzb21vcnBoaWMQBSpoChBMb29rdXBQcmVm",
+            "ZXJlbmNlEhAKDE5vdFNwZWNpZmllZBAAEhMKD1dvcmtzdGF0aW9uTmFtZRAB",
+            "EgsKB0Ruc05hbWUQAhIICgRJUHY0EAMSCAoESVB2NhAEEgwKCFVzZXJuYW1l",
+            "EAViBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::IPA5.XO.ProtoBuf.ConfirmationLevel), typeof(global::IPA5.XO.ProtoBuf.CommunicationType), typeof(global::IPA5.XO.ProtoBuf.CommMessageCode), typeof(global::IPA5.XO.ProtoBuf.CommStatusCode), typeof(global::IPA5.XO.ProtoBuf.CommEventCode), typeof(global::IPA5.XO.ProtoBuf.ServiceType), typeof(global::IPA5.XO.ProtoBuf.ChannelType), typeof(global::IPA5.XO.ProtoBuf.LookupPreference), }, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::IPA5.XO.ProtoBuf.ChannelData), global::IPA5.XO.ProtoBuf.ChannelData.Parser, new[]{ "BrokerMessage" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::IPA5.XO.ProtoBuf.BrokerMessage), global::IPA5.XO.ProtoBuf.BrokerMessage.Parser, new[]{ "Header", "StringData", "Response", "Request", "Heartbeat" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::IPA5.XO.ProtoBuf.HeartbeatMessage), global::IPA5.XO.ProtoBuf.HeartbeatMessage.Parser, new[]{ "SourceComponent", "ChannelId" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::IPA5.XO.ProtoBuf.CommunicationHeader), global::IPA5.XO.ProtoBuf.CommunicationHeader.Parser, new[]{ "MessageType", "MessageAction", "EventAction", "CommIdentifiers", "SenderConnectionClientId", "GlobalComponentId", "ConnectionId", "Version", "Source", "OBSOLETEDestination", "CommAuth", "ConfirmationLevel", "Flags", "Hints", "InitialRequestId" }, new[]{ "EventMessageAction" }, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::IPA5.XO.ProtoBuf.CommAuth), global::IPA5.XO.ProtoBuf.CommAuth.Parser, new[]{ "JwtToken", "ApiClientKey" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::IPA5.XO.ProtoBuf.CommIdentifier), global::IPA5.XO.ProtoBuf.CommIdentifier.Parser, new[]{ "ConnectionId", "DnsName", "IPv4", "UserName", "WorkstationName", "Service", "IPv6", "ChannelId", "ChannelType", "LicenseKey", "LookupPreference", "CompanyId", "MachineFingerprint", "IsCloud", "AppVersion", "BrokerOwnerId" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::IPA5.XO.ProtoBuf.CommFlags), global::IPA5.XO.ProtoBuf.CommFlags.Parser, new[]{ "MessageFlag", "AcknowledgementFlag", "HeartbeatFlag", "TraceFlag", "Internal", "SubscriptionFlag" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::IPA5.XO.ProtoBuf.CommHints), global::IPA5.XO.ProtoBuf.CommHints.Parser, new[]{ "CommIdentifiers", "Parameters" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::IPA5.XO.ProtoBuf.CommReserved), global::IPA5.XO.ProtoBuf.CommReserved.Parser, new[]{ "Reserved1", "Reserved2", "Reserved3", "Reserved4", "Reserved5", "Reserved6", "Reserved7", "Reserved8" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::IPA5.XO.ProtoBuf.CommResponse), global::IPA5.XO.ProtoBuf.CommResponse.Parser, new[]{ "Status" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::IPA5.XO.ProtoBuf.CommStatus), global::IPA5.XO.ProtoBuf.CommStatus.Parser, new[]{ "StatusCode", "StatusMessage" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::IPA5.XO.ProtoBuf.LinkRequest), global::IPA5.XO.ProtoBuf.LinkRequest.Parser, new[]{ "MessageId", "CustId", "Password" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::IPA5.XO.ProtoBuf.LinkResponse), global::IPA5.XO.ProtoBuf.LinkResponse.Parser, new[]{ "MessageId", "Errors", "Responses" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::IPA5.XO.ProtoBuf.LinkErrorValue), global::IPA5.XO.ProtoBuf.LinkErrorValue.Parser, new[]{ "Code", "Type", "Message" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::IPA5.XO.ProtoBuf.LinkActionResponse), global::IPA5.XO.ProtoBuf.LinkActionResponse.Parser, new[]{ "MessageId", "RequestId", "Errors" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::IPA5.XO.ProtoBuf.BrokerMessages), global::IPA5.XO.ProtoBuf.BrokerMessages.Parser, new[]{ "BrokerMessageList" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::IPA5.XO.ProtoBuf.HeartbeatUpdateList), global::IPA5.XO.ProtoBuf.HeartbeatUpdateList.Parser, new[]{ "ConnectionIdList" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::IPA5.XO.ProtoBuf.GetConnectionsResponse), global::IPA5.XO.ProtoBuf.GetConnectionsResponse.Parser, new[]{ "CommIdentifiers" }, null, null, null)
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::XO.ProtoBuf.ConfirmationLevel), typeof(global::XO.ProtoBuf.CommunicationType), typeof(global::XO.ProtoBuf.CommMessageCode), typeof(global::XO.ProtoBuf.CommStatusCode), typeof(global::XO.ProtoBuf.CommEventCode), typeof(global::XO.ProtoBuf.ServiceType), typeof(global::XO.ProtoBuf.ChannelType), typeof(global::XO.ProtoBuf.LookupPreference), }, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::XO.ProtoBuf.ChannelData), global::XO.ProtoBuf.ChannelData.Parser, new[]{ "BrokerMessage" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::XO.ProtoBuf.BrokerMessage), global::XO.ProtoBuf.BrokerMessage.Parser, new[]{ "Header", "StringData", "Response", "Request", "Heartbeat" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::XO.ProtoBuf.HeartbeatMessage), global::XO.ProtoBuf.HeartbeatMessage.Parser, new[]{ "SourceComponent", "ChannelId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::XO.ProtoBuf.CommunicationHeader), global::XO.ProtoBuf.CommunicationHeader.Parser, new[]{ "MessageType", "MessageAction", "EventAction", "CommIdentifiers", "SenderConnectionClientId", "GlobalComponentId", "ConnectionId", "Version", "Source", "OBSOLETEDestination", "CommAuth", "ConfirmationLevel", "Flags", "Hints", "InitialRequestId" }, new[]{ "EventMessageAction" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::XO.ProtoBuf.CommAuth), global::XO.ProtoBuf.CommAuth.Parser, new[]{ "JwtToken", "ApiClientKey" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::XO.ProtoBuf.CommIdentifier), global::XO.ProtoBuf.CommIdentifier.Parser, new[]{ "ConnectionId", "DnsName", "IPv4", "UserName", "WorkstationName", "Service", "IPv6", "ChannelId", "ChannelType", "LicenseKey", "LookupPreference", "CompanyId", "MachineFingerprint", "IsCloud", "AppVersion", "BrokerOwnerId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::XO.ProtoBuf.CommFlags), global::XO.ProtoBuf.CommFlags.Parser, new[]{ "MessageFlag", "AcknowledgementFlag", "HeartbeatFlag", "TraceFlag", "Internal", "SubscriptionFlag" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::XO.ProtoBuf.CommHints), global::XO.ProtoBuf.CommHints.Parser, new[]{ "CommIdentifiers", "Parameters" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::XO.ProtoBuf.CommReserved), global::XO.ProtoBuf.CommReserved.Parser, new[]{ "Reserved1", "Reserved2", "Reserved3", "Reserved4", "Reserved5", "Reserved6", "Reserved7", "Reserved8" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::XO.ProtoBuf.CommResponse), global::XO.ProtoBuf.CommResponse.Parser, new[]{ "Status" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::XO.ProtoBuf.CommStatus), global::XO.ProtoBuf.CommStatus.Parser, new[]{ "StatusCode", "StatusMessage" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::XO.ProtoBuf.LinkRequest), global::XO.ProtoBuf.LinkRequest.Parser, new[]{ "MessageId", "CustId", "Password" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::XO.ProtoBuf.LinkResponse), global::XO.ProtoBuf.LinkResponse.Parser, new[]{ "MessageId", "Errors", "Responses" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::XO.ProtoBuf.LinkErrorValue), global::XO.ProtoBuf.LinkErrorValue.Parser, new[]{ "Code", "Type", "Message" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::XO.ProtoBuf.LinkActionResponse), global::XO.ProtoBuf.LinkActionResponse.Parser, new[]{ "MessageId", "RequestId", "Errors" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::XO.ProtoBuf.BrokerMessages), global::XO.ProtoBuf.BrokerMessages.Parser, new[]{ "BrokerMessageList" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::XO.ProtoBuf.HeartbeatUpdateList), global::XO.ProtoBuf.HeartbeatUpdateList.Parser, new[]{ "ConnectionIdList" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::XO.ProtoBuf.GetConnectionsResponse), global::XO.ProtoBuf.GetConnectionsResponse.Parser, new[]{ "CommIdentifiers" }, null, null, null, null)
           }));
     }
     #endregion
@@ -258,7 +255,7 @@ namespace IPA5.XO.ProtoBuf {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::IPA5.XO.ProtoBuf.BrokerPackageReflection.Descriptor.MessageTypes[0]; }
+      get { return global::XO.ProtoBuf.BrokerPackageReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -286,9 +283,9 @@ namespace IPA5.XO.ProtoBuf {
 
     /// <summary>Field number for the "BrokerMessage" field.</summary>
     public const int BrokerMessageFieldNumber = 1;
-    private global::IPA5.XO.ProtoBuf.BrokerMessage brokerMessage_;
+    private global::XO.ProtoBuf.BrokerMessage brokerMessage_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::IPA5.XO.ProtoBuf.BrokerMessage BrokerMessage {
+    public global::XO.ProtoBuf.BrokerMessage BrokerMessage {
       get { return brokerMessage_; }
       set {
         brokerMessage_ = value;
@@ -357,7 +354,7 @@ namespace IPA5.XO.ProtoBuf {
       }
       if (other.brokerMessage_ != null) {
         if (brokerMessage_ == null) {
-          BrokerMessage = new global::IPA5.XO.ProtoBuf.BrokerMessage();
+          BrokerMessage = new global::XO.ProtoBuf.BrokerMessage();
         }
         BrokerMessage.MergeFrom(other.BrokerMessage);
       }
@@ -374,7 +371,7 @@ namespace IPA5.XO.ProtoBuf {
             break;
           case 10: {
             if (brokerMessage_ == null) {
-              BrokerMessage = new global::IPA5.XO.ProtoBuf.BrokerMessage();
+              BrokerMessage = new global::XO.ProtoBuf.BrokerMessage();
             }
             input.ReadMessage(BrokerMessage);
             break;
@@ -393,7 +390,7 @@ namespace IPA5.XO.ProtoBuf {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::IPA5.XO.ProtoBuf.BrokerPackageReflection.Descriptor.MessageTypes[1]; }
+      get { return global::XO.ProtoBuf.BrokerPackageReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -425,9 +422,9 @@ namespace IPA5.XO.ProtoBuf {
 
     /// <summary>Field number for the "Header" field.</summary>
     public const int HeaderFieldNumber = 1;
-    private global::IPA5.XO.ProtoBuf.CommunicationHeader header_;
+    private global::XO.ProtoBuf.CommunicationHeader header_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::IPA5.XO.ProtoBuf.CommunicationHeader Header {
+    public global::XO.ProtoBuf.CommunicationHeader Header {
       get { return header_; }
       set {
         header_ = value;
@@ -447,9 +444,9 @@ namespace IPA5.XO.ProtoBuf {
 
     /// <summary>Field number for the "Response" field.</summary>
     public const int ResponseFieldNumber = 3;
-    private global::IPA5.XO.ProtoBuf.LinkResponse response_;
+    private global::XO.ProtoBuf.LinkResponse response_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::IPA5.XO.ProtoBuf.LinkResponse Response {
+    public global::XO.ProtoBuf.LinkResponse Response {
       get { return response_; }
       set {
         response_ = value;
@@ -458,9 +455,9 @@ namespace IPA5.XO.ProtoBuf {
 
     /// <summary>Field number for the "Request" field.</summary>
     public const int RequestFieldNumber = 4;
-    private global::IPA5.XO.ProtoBuf.LinkRequest request_;
+    private global::XO.ProtoBuf.LinkRequest request_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::IPA5.XO.ProtoBuf.LinkRequest Request {
+    public global::XO.ProtoBuf.LinkRequest Request {
       get { return request_; }
       set {
         request_ = value;
@@ -469,9 +466,9 @@ namespace IPA5.XO.ProtoBuf {
 
     /// <summary>Field number for the "Heartbeat" field.</summary>
     public const int HeartbeatFieldNumber = 5;
-    private global::IPA5.XO.ProtoBuf.HeartbeatMessage heartbeat_;
+    private global::XO.ProtoBuf.HeartbeatMessage heartbeat_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::IPA5.XO.ProtoBuf.HeartbeatMessage Heartbeat {
+    public global::XO.ProtoBuf.HeartbeatMessage Heartbeat {
       get { return heartbeat_; }
       set {
         heartbeat_ = value;
@@ -576,7 +573,7 @@ namespace IPA5.XO.ProtoBuf {
       }
       if (other.header_ != null) {
         if (header_ == null) {
-          Header = new global::IPA5.XO.ProtoBuf.CommunicationHeader();
+          Header = new global::XO.ProtoBuf.CommunicationHeader();
         }
         Header.MergeFrom(other.Header);
       }
@@ -585,19 +582,19 @@ namespace IPA5.XO.ProtoBuf {
       }
       if (other.response_ != null) {
         if (response_ == null) {
-          Response = new global::IPA5.XO.ProtoBuf.LinkResponse();
+          Response = new global::XO.ProtoBuf.LinkResponse();
         }
         Response.MergeFrom(other.Response);
       }
       if (other.request_ != null) {
         if (request_ == null) {
-          Request = new global::IPA5.XO.ProtoBuf.LinkRequest();
+          Request = new global::XO.ProtoBuf.LinkRequest();
         }
         Request.MergeFrom(other.Request);
       }
       if (other.heartbeat_ != null) {
         if (heartbeat_ == null) {
-          Heartbeat = new global::IPA5.XO.ProtoBuf.HeartbeatMessage();
+          Heartbeat = new global::XO.ProtoBuf.HeartbeatMessage();
         }
         Heartbeat.MergeFrom(other.Heartbeat);
       }
@@ -614,7 +611,7 @@ namespace IPA5.XO.ProtoBuf {
             break;
           case 10: {
             if (header_ == null) {
-              Header = new global::IPA5.XO.ProtoBuf.CommunicationHeader();
+              Header = new global::XO.ProtoBuf.CommunicationHeader();
             }
             input.ReadMessage(Header);
             break;
@@ -625,21 +622,21 @@ namespace IPA5.XO.ProtoBuf {
           }
           case 26: {
             if (response_ == null) {
-              Response = new global::IPA5.XO.ProtoBuf.LinkResponse();
+              Response = new global::XO.ProtoBuf.LinkResponse();
             }
             input.ReadMessage(Response);
             break;
           }
           case 34: {
             if (request_ == null) {
-              Request = new global::IPA5.XO.ProtoBuf.LinkRequest();
+              Request = new global::XO.ProtoBuf.LinkRequest();
             }
             input.ReadMessage(Request);
             break;
           }
           case 42: {
             if (heartbeat_ == null) {
-              Heartbeat = new global::IPA5.XO.ProtoBuf.HeartbeatMessage();
+              Heartbeat = new global::XO.ProtoBuf.HeartbeatMessage();
             }
             input.ReadMessage(Heartbeat);
             break;
@@ -658,7 +655,7 @@ namespace IPA5.XO.ProtoBuf {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::IPA5.XO.ProtoBuf.BrokerPackageReflection.Descriptor.MessageTypes[2]; }
+      get { return global::XO.ProtoBuf.BrokerPackageReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -687,9 +684,9 @@ namespace IPA5.XO.ProtoBuf {
 
     /// <summary>Field number for the "SourceComponent" field.</summary>
     public const int SourceComponentFieldNumber = 1;
-    private global::IPA5.XO.ProtoBuf.CommIdentifier sourceComponent_;
+    private global::XO.ProtoBuf.CommIdentifier sourceComponent_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::IPA5.XO.ProtoBuf.CommIdentifier SourceComponent {
+    public global::XO.ProtoBuf.CommIdentifier SourceComponent {
       get { return sourceComponent_; }
       set {
         sourceComponent_ = value;
@@ -778,7 +775,7 @@ namespace IPA5.XO.ProtoBuf {
       }
       if (other.sourceComponent_ != null) {
         if (sourceComponent_ == null) {
-          SourceComponent = new global::IPA5.XO.ProtoBuf.CommIdentifier();
+          SourceComponent = new global::XO.ProtoBuf.CommIdentifier();
         }
         SourceComponent.MergeFrom(other.SourceComponent);
       }
@@ -798,7 +795,7 @@ namespace IPA5.XO.ProtoBuf {
             break;
           case 10: {
             if (sourceComponent_ == null) {
-              SourceComponent = new global::IPA5.XO.ProtoBuf.CommIdentifier();
+              SourceComponent = new global::XO.ProtoBuf.CommIdentifier();
             }
             input.ReadMessage(SourceComponent);
             break;
@@ -821,7 +818,7 @@ namespace IPA5.XO.ProtoBuf {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::IPA5.XO.ProtoBuf.BrokerPackageReflection.Descriptor.MessageTypes[3]; }
+      get { return global::XO.ProtoBuf.BrokerPackageReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -870,9 +867,9 @@ namespace IPA5.XO.ProtoBuf {
 
     /// <summary>Field number for the "MessageType" field.</summary>
     public const int MessageTypeFieldNumber = 1;
-    private global::IPA5.XO.ProtoBuf.CommunicationType messageType_ = global::IPA5.XO.ProtoBuf.CommunicationType.UnknownCommunicationType;
+    private global::XO.ProtoBuf.CommunicationType messageType_ = global::XO.ProtoBuf.CommunicationType.UnknownCommunicationType;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::IPA5.XO.ProtoBuf.CommunicationType MessageType {
+    public global::XO.ProtoBuf.CommunicationType MessageType {
       get { return messageType_; }
       set {
         messageType_ = value;
@@ -882,8 +879,8 @@ namespace IPA5.XO.ProtoBuf {
     /// <summary>Field number for the "MessageAction" field.</summary>
     public const int MessageActionFieldNumber = 2;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::IPA5.XO.ProtoBuf.CommMessageCode MessageAction {
-      get { return eventMessageActionCase_ == EventMessageActionOneofCase.MessageAction ? (global::IPA5.XO.ProtoBuf.CommMessageCode) eventMessageAction_ : global::IPA5.XO.ProtoBuf.CommMessageCode.UnknownCommMessageCode; }
+    public global::XO.ProtoBuf.CommMessageCode MessageAction {
+      get { return eventMessageActionCase_ == EventMessageActionOneofCase.MessageAction ? (global::XO.ProtoBuf.CommMessageCode) eventMessageAction_ : global::XO.ProtoBuf.CommMessageCode.UnknownCommMessageCode; }
       set {
         eventMessageAction_ = value;
         eventMessageActionCase_ = EventMessageActionOneofCase.MessageAction;
@@ -893,8 +890,8 @@ namespace IPA5.XO.ProtoBuf {
     /// <summary>Field number for the "EventAction" field.</summary>
     public const int EventActionFieldNumber = 3;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::IPA5.XO.ProtoBuf.CommEventCode EventAction {
-      get { return eventMessageActionCase_ == EventMessageActionOneofCase.EventAction ? (global::IPA5.XO.ProtoBuf.CommEventCode) eventMessageAction_ : global::IPA5.XO.ProtoBuf.CommEventCode.UnknownCommEventCode; }
+    public global::XO.ProtoBuf.CommEventCode EventAction {
+      get { return eventMessageActionCase_ == EventMessageActionOneofCase.EventAction ? (global::XO.ProtoBuf.CommEventCode) eventMessageAction_ : global::XO.ProtoBuf.CommEventCode.UnknownCommEventCode; }
       set {
         eventMessageAction_ = value;
         eventMessageActionCase_ = EventMessageActionOneofCase.EventAction;
@@ -903,11 +900,11 @@ namespace IPA5.XO.ProtoBuf {
 
     /// <summary>Field number for the "CommIdentifiers" field.</summary>
     public const int CommIdentifiersFieldNumber = 4;
-    private static readonly pb::FieldCodec<global::IPA5.XO.ProtoBuf.CommIdentifier> _repeated_commIdentifiers_codec
-        = pb::FieldCodec.ForMessage(34, global::IPA5.XO.ProtoBuf.CommIdentifier.Parser);
-    private readonly pbc::RepeatedField<global::IPA5.XO.ProtoBuf.CommIdentifier> commIdentifiers_ = new pbc::RepeatedField<global::IPA5.XO.ProtoBuf.CommIdentifier>();
+    private static readonly pb::FieldCodec<global::XO.ProtoBuf.CommIdentifier> _repeated_commIdentifiers_codec
+        = pb::FieldCodec.ForMessage(34, global::XO.ProtoBuf.CommIdentifier.Parser);
+    private readonly pbc::RepeatedField<global::XO.ProtoBuf.CommIdentifier> commIdentifiers_ = new pbc::RepeatedField<global::XO.ProtoBuf.CommIdentifier>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::IPA5.XO.ProtoBuf.CommIdentifier> CommIdentifiers {
+    public pbc::RepeatedField<global::XO.ProtoBuf.CommIdentifier> CommIdentifiers {
       get { return commIdentifiers_; }
     }
 
@@ -957,9 +954,9 @@ namespace IPA5.XO.ProtoBuf {
 
     /// <summary>Field number for the "Source" field.</summary>
     public const int SourceFieldNumber = 9;
-    private global::IPA5.XO.ProtoBuf.CommIdentifier source_;
+    private global::XO.ProtoBuf.CommIdentifier source_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::IPA5.XO.ProtoBuf.CommIdentifier Source {
+    public global::XO.ProtoBuf.CommIdentifier Source {
       get { return source_; }
       set {
         source_ = value;
@@ -968,9 +965,9 @@ namespace IPA5.XO.ProtoBuf {
 
     /// <summary>Field number for the "OBSOLETE_Destination" field.</summary>
     public const int OBSOLETEDestinationFieldNumber = 10;
-    private global::IPA5.XO.ProtoBuf.CommIdentifier oBSOLETEDestination_;
+    private global::XO.ProtoBuf.CommIdentifier oBSOLETEDestination_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::IPA5.XO.ProtoBuf.CommIdentifier OBSOLETEDestination {
+    public global::XO.ProtoBuf.CommIdentifier OBSOLETEDestination {
       get { return oBSOLETEDestination_; }
       set {
         oBSOLETEDestination_ = value;
@@ -979,9 +976,9 @@ namespace IPA5.XO.ProtoBuf {
 
     /// <summary>Field number for the "CommAuth" field.</summary>
     public const int CommAuthFieldNumber = 11;
-    private global::IPA5.XO.ProtoBuf.CommAuth commAuth_;
+    private global::XO.ProtoBuf.CommAuth commAuth_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::IPA5.XO.ProtoBuf.CommAuth CommAuth {
+    public global::XO.ProtoBuf.CommAuth CommAuth {
       get { return commAuth_; }
       set {
         commAuth_ = value;
@@ -990,9 +987,9 @@ namespace IPA5.XO.ProtoBuf {
 
     /// <summary>Field number for the "ConfirmationLevel" field.</summary>
     public const int ConfirmationLevelFieldNumber = 12;
-    private global::IPA5.XO.ProtoBuf.ConfirmationLevel confirmationLevel_ = global::IPA5.XO.ProtoBuf.ConfirmationLevel.UnknownConfirmationLevel;
+    private global::XO.ProtoBuf.ConfirmationLevel confirmationLevel_ = global::XO.ProtoBuf.ConfirmationLevel.UnknownConfirmationLevel;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::IPA5.XO.ProtoBuf.ConfirmationLevel ConfirmationLevel {
+    public global::XO.ProtoBuf.ConfirmationLevel ConfirmationLevel {
       get { return confirmationLevel_; }
       set {
         confirmationLevel_ = value;
@@ -1001,9 +998,9 @@ namespace IPA5.XO.ProtoBuf {
 
     /// <summary>Field number for the "Flags" field.</summary>
     public const int FlagsFieldNumber = 13;
-    private global::IPA5.XO.ProtoBuf.CommFlags flags_;
+    private global::XO.ProtoBuf.CommFlags flags_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::IPA5.XO.ProtoBuf.CommFlags Flags {
+    public global::XO.ProtoBuf.CommFlags Flags {
       get { return flags_; }
       set {
         flags_ = value;
@@ -1012,9 +1009,9 @@ namespace IPA5.XO.ProtoBuf {
 
     /// <summary>Field number for the "Hints" field.</summary>
     public const int HintsFieldNumber = 14;
-    private global::IPA5.XO.ProtoBuf.CommHints hints_;
+    private global::XO.ProtoBuf.CommHints hints_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::IPA5.XO.ProtoBuf.CommHints Hints {
+    public global::XO.ProtoBuf.CommHints Hints {
       get { return hints_; }
       set {
         hints_ = value;
@@ -1086,7 +1083,7 @@ namespace IPA5.XO.ProtoBuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (MessageType != global::IPA5.XO.ProtoBuf.CommunicationType.UnknownCommunicationType) hash ^= MessageType.GetHashCode();
+      if (MessageType != global::XO.ProtoBuf.CommunicationType.UnknownCommunicationType) hash ^= MessageType.GetHashCode();
       if (eventMessageActionCase_ == EventMessageActionOneofCase.MessageAction) hash ^= MessageAction.GetHashCode();
       if (eventMessageActionCase_ == EventMessageActionOneofCase.EventAction) hash ^= EventAction.GetHashCode();
       hash ^= commIdentifiers_.GetHashCode();
@@ -1097,7 +1094,7 @@ namespace IPA5.XO.ProtoBuf {
       if (source_ != null) hash ^= Source.GetHashCode();
       if (oBSOLETEDestination_ != null) hash ^= OBSOLETEDestination.GetHashCode();
       if (commAuth_ != null) hash ^= CommAuth.GetHashCode();
-      if (ConfirmationLevel != global::IPA5.XO.ProtoBuf.ConfirmationLevel.UnknownConfirmationLevel) hash ^= ConfirmationLevel.GetHashCode();
+      if (ConfirmationLevel != global::XO.ProtoBuf.ConfirmationLevel.UnknownConfirmationLevel) hash ^= ConfirmationLevel.GetHashCode();
       if (flags_ != null) hash ^= Flags.GetHashCode();
       if (hints_ != null) hash ^= Hints.GetHashCode();
       if (InitialRequestId.Length != 0) hash ^= InitialRequestId.GetHashCode();
@@ -1115,7 +1112,7 @@ namespace IPA5.XO.ProtoBuf {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (MessageType != global::IPA5.XO.ProtoBuf.CommunicationType.UnknownCommunicationType) {
+      if (MessageType != global::XO.ProtoBuf.CommunicationType.UnknownCommunicationType) {
         output.WriteRawTag(8);
         output.WriteEnum((int) MessageType);
       }
@@ -1156,7 +1153,7 @@ namespace IPA5.XO.ProtoBuf {
         output.WriteRawTag(90);
         output.WriteMessage(CommAuth);
       }
-      if (ConfirmationLevel != global::IPA5.XO.ProtoBuf.ConfirmationLevel.UnknownConfirmationLevel) {
+      if (ConfirmationLevel != global::XO.ProtoBuf.ConfirmationLevel.UnknownConfirmationLevel) {
         output.WriteRawTag(96);
         output.WriteEnum((int) ConfirmationLevel);
       }
@@ -1180,7 +1177,7 @@ namespace IPA5.XO.ProtoBuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (MessageType != global::IPA5.XO.ProtoBuf.CommunicationType.UnknownCommunicationType) {
+      if (MessageType != global::XO.ProtoBuf.CommunicationType.UnknownCommunicationType) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) MessageType);
       }
       if (eventMessageActionCase_ == EventMessageActionOneofCase.MessageAction) {
@@ -1211,7 +1208,7 @@ namespace IPA5.XO.ProtoBuf {
       if (commAuth_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(CommAuth);
       }
-      if (ConfirmationLevel != global::IPA5.XO.ProtoBuf.ConfirmationLevel.UnknownConfirmationLevel) {
+      if (ConfirmationLevel != global::XO.ProtoBuf.ConfirmationLevel.UnknownConfirmationLevel) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ConfirmationLevel);
       }
       if (flags_ != null) {
@@ -1234,7 +1231,7 @@ namespace IPA5.XO.ProtoBuf {
       if (other == null) {
         return;
       }
-      if (other.MessageType != global::IPA5.XO.ProtoBuf.CommunicationType.UnknownCommunicationType) {
+      if (other.MessageType != global::XO.ProtoBuf.CommunicationType.UnknownCommunicationType) {
         MessageType = other.MessageType;
       }
       commIdentifiers_.Add(other.commIdentifiers_);
@@ -1252,34 +1249,34 @@ namespace IPA5.XO.ProtoBuf {
       }
       if (other.source_ != null) {
         if (source_ == null) {
-          Source = new global::IPA5.XO.ProtoBuf.CommIdentifier();
+          Source = new global::XO.ProtoBuf.CommIdentifier();
         }
         Source.MergeFrom(other.Source);
       }
       if (other.oBSOLETEDestination_ != null) {
         if (oBSOLETEDestination_ == null) {
-          OBSOLETEDestination = new global::IPA5.XO.ProtoBuf.CommIdentifier();
+          OBSOLETEDestination = new global::XO.ProtoBuf.CommIdentifier();
         }
         OBSOLETEDestination.MergeFrom(other.OBSOLETEDestination);
       }
       if (other.commAuth_ != null) {
         if (commAuth_ == null) {
-          CommAuth = new global::IPA5.XO.ProtoBuf.CommAuth();
+          CommAuth = new global::XO.ProtoBuf.CommAuth();
         }
         CommAuth.MergeFrom(other.CommAuth);
       }
-      if (other.ConfirmationLevel != global::IPA5.XO.ProtoBuf.ConfirmationLevel.UnknownConfirmationLevel) {
+      if (other.ConfirmationLevel != global::XO.ProtoBuf.ConfirmationLevel.UnknownConfirmationLevel) {
         ConfirmationLevel = other.ConfirmationLevel;
       }
       if (other.flags_ != null) {
         if (flags_ == null) {
-          Flags = new global::IPA5.XO.ProtoBuf.CommFlags();
+          Flags = new global::XO.ProtoBuf.CommFlags();
         }
         Flags.MergeFrom(other.Flags);
       }
       if (other.hints_ != null) {
         if (hints_ == null) {
-          Hints = new global::IPA5.XO.ProtoBuf.CommHints();
+          Hints = new global::XO.ProtoBuf.CommHints();
         }
         Hints.MergeFrom(other.Hints);
       }
@@ -1307,7 +1304,7 @@ namespace IPA5.XO.ProtoBuf {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            MessageType = (global::IPA5.XO.ProtoBuf.CommunicationType) input.ReadEnum();
+            MessageType = (global::XO.ProtoBuf.CommunicationType) input.ReadEnum();
             break;
           }
           case 16: {
@@ -1342,39 +1339,39 @@ namespace IPA5.XO.ProtoBuf {
           }
           case 74: {
             if (source_ == null) {
-              Source = new global::IPA5.XO.ProtoBuf.CommIdentifier();
+              Source = new global::XO.ProtoBuf.CommIdentifier();
             }
             input.ReadMessage(Source);
             break;
           }
           case 82: {
             if (oBSOLETEDestination_ == null) {
-              OBSOLETEDestination = new global::IPA5.XO.ProtoBuf.CommIdentifier();
+              OBSOLETEDestination = new global::XO.ProtoBuf.CommIdentifier();
             }
             input.ReadMessage(OBSOLETEDestination);
             break;
           }
           case 90: {
             if (commAuth_ == null) {
-              CommAuth = new global::IPA5.XO.ProtoBuf.CommAuth();
+              CommAuth = new global::XO.ProtoBuf.CommAuth();
             }
             input.ReadMessage(CommAuth);
             break;
           }
           case 96: {
-            ConfirmationLevel = (global::IPA5.XO.ProtoBuf.ConfirmationLevel) input.ReadEnum();
+            ConfirmationLevel = (global::XO.ProtoBuf.ConfirmationLevel) input.ReadEnum();
             break;
           }
           case 106: {
             if (flags_ == null) {
-              Flags = new global::IPA5.XO.ProtoBuf.CommFlags();
+              Flags = new global::XO.ProtoBuf.CommFlags();
             }
             input.ReadMessage(Flags);
             break;
           }
           case 114: {
             if (hints_ == null) {
-              Hints = new global::IPA5.XO.ProtoBuf.CommHints();
+              Hints = new global::XO.ProtoBuf.CommHints();
             }
             input.ReadMessage(Hints);
             break;
@@ -1397,7 +1394,7 @@ namespace IPA5.XO.ProtoBuf {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::IPA5.XO.ProtoBuf.BrokerPackageReflection.Descriptor.MessageTypes[4]; }
+      get { return global::XO.ProtoBuf.BrokerPackageReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1554,7 +1551,7 @@ namespace IPA5.XO.ProtoBuf {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::IPA5.XO.ProtoBuf.BrokerPackageReflection.Descriptor.MessageTypes[5]; }
+      get { return global::XO.ProtoBuf.BrokerPackageReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1652,9 +1649,9 @@ namespace IPA5.XO.ProtoBuf {
 
     /// <summary>Field number for the "Service" field.</summary>
     public const int ServiceFieldNumber = 6;
-    private global::IPA5.XO.ProtoBuf.ServiceType service_ = global::IPA5.XO.ProtoBuf.ServiceType.UnknownServiceType;
+    private global::XO.ProtoBuf.ServiceType service_ = global::XO.ProtoBuf.ServiceType.UnknownServiceType;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::IPA5.XO.ProtoBuf.ServiceType Service {
+    public global::XO.ProtoBuf.ServiceType Service {
       get { return service_; }
       set {
         service_ = value;
@@ -1685,9 +1682,9 @@ namespace IPA5.XO.ProtoBuf {
 
     /// <summary>Field number for the "ChannelType" field.</summary>
     public const int ChannelTypeFieldNumber = 9;
-    private global::IPA5.XO.ProtoBuf.ChannelType channelType_ = global::IPA5.XO.ProtoBuf.ChannelType.UnknownChannelType;
+    private global::XO.ProtoBuf.ChannelType channelType_ = global::XO.ProtoBuf.ChannelType.UnknownChannelType;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::IPA5.XO.ProtoBuf.ChannelType ChannelType {
+    public global::XO.ProtoBuf.ChannelType ChannelType {
       get { return channelType_; }
       set {
         channelType_ = value;
@@ -1707,9 +1704,9 @@ namespace IPA5.XO.ProtoBuf {
 
     /// <summary>Field number for the "LookupPreference" field.</summary>
     public const int LookupPreferenceFieldNumber = 11;
-    private global::IPA5.XO.ProtoBuf.LookupPreference lookupPreference_ = global::IPA5.XO.ProtoBuf.LookupPreference.NotSpecified;
+    private global::XO.ProtoBuf.LookupPreference lookupPreference_ = global::XO.ProtoBuf.LookupPreference.NotSpecified;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::IPA5.XO.ProtoBuf.LookupPreference LookupPreference {
+    public global::XO.ProtoBuf.LookupPreference LookupPreference {
       get { return lookupPreference_; }
       set {
         lookupPreference_ = value;
@@ -1811,12 +1808,12 @@ namespace IPA5.XO.ProtoBuf {
       if (IPv4.Length != 0) hash ^= IPv4.GetHashCode();
       if (UserName.Length != 0) hash ^= UserName.GetHashCode();
       if (WorkstationName.Length != 0) hash ^= WorkstationName.GetHashCode();
-      if (Service != global::IPA5.XO.ProtoBuf.ServiceType.UnknownServiceType) hash ^= Service.GetHashCode();
+      if (Service != global::XO.ProtoBuf.ServiceType.UnknownServiceType) hash ^= Service.GetHashCode();
       if (IPv6.Length != 0) hash ^= IPv6.GetHashCode();
       if (ChannelId.Length != 0) hash ^= ChannelId.GetHashCode();
-      if (ChannelType != global::IPA5.XO.ProtoBuf.ChannelType.UnknownChannelType) hash ^= ChannelType.GetHashCode();
+      if (ChannelType != global::XO.ProtoBuf.ChannelType.UnknownChannelType) hash ^= ChannelType.GetHashCode();
       if (LicenseKey.Length != 0) hash ^= LicenseKey.GetHashCode();
-      if (LookupPreference != global::IPA5.XO.ProtoBuf.LookupPreference.NotSpecified) hash ^= LookupPreference.GetHashCode();
+      if (LookupPreference != global::XO.ProtoBuf.LookupPreference.NotSpecified) hash ^= LookupPreference.GetHashCode();
       if (CompanyId != 0) hash ^= CompanyId.GetHashCode();
       if (MachineFingerprint.Length != 0) hash ^= MachineFingerprint.GetHashCode();
       if (IsCloud != false) hash ^= IsCloud.GetHashCode();
@@ -1855,7 +1852,7 @@ namespace IPA5.XO.ProtoBuf {
         output.WriteRawTag(42);
         output.WriteString(WorkstationName);
       }
-      if (Service != global::IPA5.XO.ProtoBuf.ServiceType.UnknownServiceType) {
+      if (Service != global::XO.ProtoBuf.ServiceType.UnknownServiceType) {
         output.WriteRawTag(48);
         output.WriteEnum((int) Service);
       }
@@ -1867,7 +1864,7 @@ namespace IPA5.XO.ProtoBuf {
         output.WriteRawTag(66);
         output.WriteString(ChannelId);
       }
-      if (ChannelType != global::IPA5.XO.ProtoBuf.ChannelType.UnknownChannelType) {
+      if (ChannelType != global::XO.ProtoBuf.ChannelType.UnknownChannelType) {
         output.WriteRawTag(72);
         output.WriteEnum((int) ChannelType);
       }
@@ -1875,7 +1872,7 @@ namespace IPA5.XO.ProtoBuf {
         output.WriteRawTag(82);
         output.WriteString(LicenseKey);
       }
-      if (LookupPreference != global::IPA5.XO.ProtoBuf.LookupPreference.NotSpecified) {
+      if (LookupPreference != global::XO.ProtoBuf.LookupPreference.NotSpecified) {
         output.WriteRawTag(88);
         output.WriteEnum((int) LookupPreference);
       }
@@ -1922,7 +1919,7 @@ namespace IPA5.XO.ProtoBuf {
       if (WorkstationName.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(WorkstationName);
       }
-      if (Service != global::IPA5.XO.ProtoBuf.ServiceType.UnknownServiceType) {
+      if (Service != global::XO.ProtoBuf.ServiceType.UnknownServiceType) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Service);
       }
       if (IPv6.Length != 0) {
@@ -1931,13 +1928,13 @@ namespace IPA5.XO.ProtoBuf {
       if (ChannelId.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(ChannelId);
       }
-      if (ChannelType != global::IPA5.XO.ProtoBuf.ChannelType.UnknownChannelType) {
+      if (ChannelType != global::XO.ProtoBuf.ChannelType.UnknownChannelType) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ChannelType);
       }
       if (LicenseKey.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(LicenseKey);
       }
-      if (LookupPreference != global::IPA5.XO.ProtoBuf.LookupPreference.NotSpecified) {
+      if (LookupPreference != global::XO.ProtoBuf.LookupPreference.NotSpecified) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) LookupPreference);
       }
       if (CompanyId != 0) {
@@ -1981,7 +1978,7 @@ namespace IPA5.XO.ProtoBuf {
       if (other.WorkstationName.Length != 0) {
         WorkstationName = other.WorkstationName;
       }
-      if (other.Service != global::IPA5.XO.ProtoBuf.ServiceType.UnknownServiceType) {
+      if (other.Service != global::XO.ProtoBuf.ServiceType.UnknownServiceType) {
         Service = other.Service;
       }
       if (other.IPv6.Length != 0) {
@@ -1990,13 +1987,13 @@ namespace IPA5.XO.ProtoBuf {
       if (other.ChannelId.Length != 0) {
         ChannelId = other.ChannelId;
       }
-      if (other.ChannelType != global::IPA5.XO.ProtoBuf.ChannelType.UnknownChannelType) {
+      if (other.ChannelType != global::XO.ProtoBuf.ChannelType.UnknownChannelType) {
         ChannelType = other.ChannelType;
       }
       if (other.LicenseKey.Length != 0) {
         LicenseKey = other.LicenseKey;
       }
-      if (other.LookupPreference != global::IPA5.XO.ProtoBuf.LookupPreference.NotSpecified) {
+      if (other.LookupPreference != global::XO.ProtoBuf.LookupPreference.NotSpecified) {
         LookupPreference = other.LookupPreference;
       }
       if (other.CompanyId != 0) {
@@ -2046,7 +2043,7 @@ namespace IPA5.XO.ProtoBuf {
             break;
           }
           case 48: {
-            Service = (global::IPA5.XO.ProtoBuf.ServiceType) input.ReadEnum();
+            Service = (global::XO.ProtoBuf.ServiceType) input.ReadEnum();
             break;
           }
           case 58: {
@@ -2058,7 +2055,7 @@ namespace IPA5.XO.ProtoBuf {
             break;
           }
           case 72: {
-            ChannelType = (global::IPA5.XO.ProtoBuf.ChannelType) input.ReadEnum();
+            ChannelType = (global::XO.ProtoBuf.ChannelType) input.ReadEnum();
             break;
           }
           case 82: {
@@ -2066,7 +2063,7 @@ namespace IPA5.XO.ProtoBuf {
             break;
           }
           case 88: {
-            LookupPreference = (global::IPA5.XO.ProtoBuf.LookupPreference) input.ReadEnum();
+            LookupPreference = (global::XO.ProtoBuf.LookupPreference) input.ReadEnum();
             break;
           }
           case 96: {
@@ -2103,7 +2100,7 @@ namespace IPA5.XO.ProtoBuf {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::IPA5.XO.ProtoBuf.BrokerPackageReflection.Descriptor.MessageTypes[6]; }
+      get { return global::XO.ProtoBuf.BrokerPackageReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2180,9 +2177,9 @@ namespace IPA5.XO.ProtoBuf {
 
     /// <summary>Field number for the "Internal" field.</summary>
     public const int InternalFieldNumber = 5;
-    private global::IPA5.XO.ProtoBuf.CommReserved internal_;
+    private global::XO.ProtoBuf.CommReserved internal_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::IPA5.XO.ProtoBuf.CommReserved Internal {
+    public global::XO.ProtoBuf.CommReserved Internal {
       get { return internal_; }
       set {
         internal_ = value;
@@ -2319,7 +2316,7 @@ namespace IPA5.XO.ProtoBuf {
       }
       if (other.internal_ != null) {
         if (internal_ == null) {
-          Internal = new global::IPA5.XO.ProtoBuf.CommReserved();
+          Internal = new global::XO.ProtoBuf.CommReserved();
         }
         Internal.MergeFrom(other.Internal);
       }
@@ -2355,7 +2352,7 @@ namespace IPA5.XO.ProtoBuf {
           }
           case 42: {
             if (internal_ == null) {
-              Internal = new global::IPA5.XO.ProtoBuf.CommReserved();
+              Internal = new global::XO.ProtoBuf.CommReserved();
             }
             input.ReadMessage(Internal);
             break;
@@ -2378,7 +2375,7 @@ namespace IPA5.XO.ProtoBuf {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::IPA5.XO.ProtoBuf.BrokerPackageReflection.Descriptor.MessageTypes[7]; }
+      get { return global::XO.ProtoBuf.BrokerPackageReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2407,18 +2404,18 @@ namespace IPA5.XO.ProtoBuf {
 
     /// <summary>Field number for the "CommIdentifiers" field.</summary>
     public const int CommIdentifiersFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::IPA5.XO.ProtoBuf.CommIdentifier> _repeated_commIdentifiers_codec
-        = pb::FieldCodec.ForMessage(10, global::IPA5.XO.ProtoBuf.CommIdentifier.Parser);
-    private readonly pbc::RepeatedField<global::IPA5.XO.ProtoBuf.CommIdentifier> commIdentifiers_ = new pbc::RepeatedField<global::IPA5.XO.ProtoBuf.CommIdentifier>();
+    private static readonly pb::FieldCodec<global::XO.ProtoBuf.CommIdentifier> _repeated_commIdentifiers_codec
+        = pb::FieldCodec.ForMessage(10, global::XO.ProtoBuf.CommIdentifier.Parser);
+    private readonly pbc::RepeatedField<global::XO.ProtoBuf.CommIdentifier> commIdentifiers_ = new pbc::RepeatedField<global::XO.ProtoBuf.CommIdentifier>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::IPA5.XO.ProtoBuf.CommIdentifier> CommIdentifiers {
+    public pbc::RepeatedField<global::XO.ProtoBuf.CommIdentifier> CommIdentifiers {
       get { return commIdentifiers_; }
     }
 
     /// <summary>Field number for the "Parameters" field.</summary>
     public const int ParametersFieldNumber = 2;
     private static readonly pbc::MapField<string, string>.Codec _map_parameters_codec
-        = new pbc::MapField<string, string>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForString(18), 18);
+        = new pbc::MapField<string, string>.Codec(pb::FieldCodec.ForString(10, ""), pb::FieldCodec.ForString(18, ""), 18);
     private readonly pbc::MapField<string, string> parameters_ = new pbc::MapField<string, string>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::MapField<string, string> Parameters {
@@ -2519,7 +2516,7 @@ namespace IPA5.XO.ProtoBuf {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::IPA5.XO.ProtoBuf.BrokerPackageReflection.Descriptor.MessageTypes[8]; }
+      get { return global::XO.ProtoBuf.BrokerPackageReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2844,7 +2841,7 @@ namespace IPA5.XO.ProtoBuf {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::IPA5.XO.ProtoBuf.BrokerPackageReflection.Descriptor.MessageTypes[9]; }
+      get { return global::XO.ProtoBuf.BrokerPackageReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2872,9 +2869,9 @@ namespace IPA5.XO.ProtoBuf {
 
     /// <summary>Field number for the "Status" field.</summary>
     public const int StatusFieldNumber = 1;
-    private global::IPA5.XO.ProtoBuf.CommStatus status_;
+    private global::XO.ProtoBuf.CommStatus status_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::IPA5.XO.ProtoBuf.CommStatus Status {
+    public global::XO.ProtoBuf.CommStatus Status {
       get { return status_; }
       set {
         status_ = value;
@@ -2943,7 +2940,7 @@ namespace IPA5.XO.ProtoBuf {
       }
       if (other.status_ != null) {
         if (status_ == null) {
-          Status = new global::IPA5.XO.ProtoBuf.CommStatus();
+          Status = new global::XO.ProtoBuf.CommStatus();
         }
         Status.MergeFrom(other.Status);
       }
@@ -2960,7 +2957,7 @@ namespace IPA5.XO.ProtoBuf {
             break;
           case 10: {
             if (status_ == null) {
-              Status = new global::IPA5.XO.ProtoBuf.CommStatus();
+              Status = new global::XO.ProtoBuf.CommStatus();
             }
             input.ReadMessage(Status);
             break;
@@ -2979,7 +2976,7 @@ namespace IPA5.XO.ProtoBuf {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::IPA5.XO.ProtoBuf.BrokerPackageReflection.Descriptor.MessageTypes[10]; }
+      get { return global::XO.ProtoBuf.BrokerPackageReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3008,9 +3005,9 @@ namespace IPA5.XO.ProtoBuf {
 
     /// <summary>Field number for the "StatusCode" field.</summary>
     public const int StatusCodeFieldNumber = 1;
-    private global::IPA5.XO.ProtoBuf.CommStatusCode statusCode_ = global::IPA5.XO.ProtoBuf.CommStatusCode.UnknownCommStatusCode;
+    private global::XO.ProtoBuf.CommStatusCode statusCode_ = global::XO.ProtoBuf.CommStatusCode.UnknownCommStatusCode;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::IPA5.XO.ProtoBuf.CommStatusCode StatusCode {
+    public global::XO.ProtoBuf.CommStatusCode StatusCode {
       get { return statusCode_; }
       set {
         statusCode_ = value;
@@ -3049,7 +3046,7 @@ namespace IPA5.XO.ProtoBuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (StatusCode != global::IPA5.XO.ProtoBuf.CommStatusCode.UnknownCommStatusCode) hash ^= StatusCode.GetHashCode();
+      if (StatusCode != global::XO.ProtoBuf.CommStatusCode.UnknownCommStatusCode) hash ^= StatusCode.GetHashCode();
       if (StatusMessage.Length != 0) hash ^= StatusMessage.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -3064,7 +3061,7 @@ namespace IPA5.XO.ProtoBuf {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (StatusCode != global::IPA5.XO.ProtoBuf.CommStatusCode.UnknownCommStatusCode) {
+      if (StatusCode != global::XO.ProtoBuf.CommStatusCode.UnknownCommStatusCode) {
         output.WriteRawTag(8);
         output.WriteEnum((int) StatusCode);
       }
@@ -3080,7 +3077,7 @@ namespace IPA5.XO.ProtoBuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (StatusCode != global::IPA5.XO.ProtoBuf.CommStatusCode.UnknownCommStatusCode) {
+      if (StatusCode != global::XO.ProtoBuf.CommStatusCode.UnknownCommStatusCode) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) StatusCode);
       }
       if (StatusMessage.Length != 0) {
@@ -3097,7 +3094,7 @@ namespace IPA5.XO.ProtoBuf {
       if (other == null) {
         return;
       }
-      if (other.StatusCode != global::IPA5.XO.ProtoBuf.CommStatusCode.UnknownCommStatusCode) {
+      if (other.StatusCode != global::XO.ProtoBuf.CommStatusCode.UnknownCommStatusCode) {
         StatusCode = other.StatusCode;
       }
       if (other.StatusMessage.Length != 0) {
@@ -3115,7 +3112,7 @@ namespace IPA5.XO.ProtoBuf {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            StatusCode = (global::IPA5.XO.ProtoBuf.CommStatusCode) input.ReadEnum();
+            StatusCode = (global::XO.ProtoBuf.CommStatusCode) input.ReadEnum();
             break;
           }
           case 18: {
@@ -3136,7 +3133,7 @@ namespace IPA5.XO.ProtoBuf {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::IPA5.XO.ProtoBuf.BrokerPackageReflection.Descriptor.MessageTypes[11]; }
+      get { return global::XO.ProtoBuf.BrokerPackageReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3321,7 +3318,7 @@ namespace IPA5.XO.ProtoBuf {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::IPA5.XO.ProtoBuf.BrokerPackageReflection.Descriptor.MessageTypes[12]; }
+      get { return global::XO.ProtoBuf.BrokerPackageReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3362,21 +3359,21 @@ namespace IPA5.XO.ProtoBuf {
 
     /// <summary>Field number for the "Errors" field.</summary>
     public const int ErrorsFieldNumber = 2;
-    private static readonly pb::FieldCodec<global::IPA5.XO.ProtoBuf.LinkErrorValue> _repeated_errors_codec
-        = pb::FieldCodec.ForMessage(18, global::IPA5.XO.ProtoBuf.LinkErrorValue.Parser);
-    private readonly pbc::RepeatedField<global::IPA5.XO.ProtoBuf.LinkErrorValue> errors_ = new pbc::RepeatedField<global::IPA5.XO.ProtoBuf.LinkErrorValue>();
+    private static readonly pb::FieldCodec<global::XO.ProtoBuf.LinkErrorValue> _repeated_errors_codec
+        = pb::FieldCodec.ForMessage(18, global::XO.ProtoBuf.LinkErrorValue.Parser);
+    private readonly pbc::RepeatedField<global::XO.ProtoBuf.LinkErrorValue> errors_ = new pbc::RepeatedField<global::XO.ProtoBuf.LinkErrorValue>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::IPA5.XO.ProtoBuf.LinkErrorValue> Errors {
+    public pbc::RepeatedField<global::XO.ProtoBuf.LinkErrorValue> Errors {
       get { return errors_; }
     }
 
     /// <summary>Field number for the "Responses" field.</summary>
     public const int ResponsesFieldNumber = 3;
-    private static readonly pb::FieldCodec<global::IPA5.XO.ProtoBuf.LinkActionResponse> _repeated_responses_codec
-        = pb::FieldCodec.ForMessage(26, global::IPA5.XO.ProtoBuf.LinkActionResponse.Parser);
-    private readonly pbc::RepeatedField<global::IPA5.XO.ProtoBuf.LinkActionResponse> responses_ = new pbc::RepeatedField<global::IPA5.XO.ProtoBuf.LinkActionResponse>();
+    private static readonly pb::FieldCodec<global::XO.ProtoBuf.LinkActionResponse> _repeated_responses_codec
+        = pb::FieldCodec.ForMessage(26, global::XO.ProtoBuf.LinkActionResponse.Parser);
+    private readonly pbc::RepeatedField<global::XO.ProtoBuf.LinkActionResponse> responses_ = new pbc::RepeatedField<global::XO.ProtoBuf.LinkActionResponse>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::IPA5.XO.ProtoBuf.LinkActionResponse> Responses {
+    public pbc::RepeatedField<global::XO.ProtoBuf.LinkActionResponse> Responses {
       get { return responses_; }
     }
 
@@ -3490,7 +3487,7 @@ namespace IPA5.XO.ProtoBuf {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::IPA5.XO.ProtoBuf.BrokerPackageReflection.Descriptor.MessageTypes[13]; }
+      get { return global::XO.ProtoBuf.BrokerPackageReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3675,7 +3672,7 @@ namespace IPA5.XO.ProtoBuf {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::IPA5.XO.ProtoBuf.BrokerPackageReflection.Descriptor.MessageTypes[14]; }
+      get { return global::XO.ProtoBuf.BrokerPackageReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3727,11 +3724,11 @@ namespace IPA5.XO.ProtoBuf {
 
     /// <summary>Field number for the "Errors" field.</summary>
     public const int ErrorsFieldNumber = 3;
-    private static readonly pb::FieldCodec<global::IPA5.XO.ProtoBuf.LinkErrorValue> _repeated_errors_codec
-        = pb::FieldCodec.ForMessage(26, global::IPA5.XO.ProtoBuf.LinkErrorValue.Parser);
-    private readonly pbc::RepeatedField<global::IPA5.XO.ProtoBuf.LinkErrorValue> errors_ = new pbc::RepeatedField<global::IPA5.XO.ProtoBuf.LinkErrorValue>();
+    private static readonly pb::FieldCodec<global::XO.ProtoBuf.LinkErrorValue> _repeated_errors_codec
+        = pb::FieldCodec.ForMessage(26, global::XO.ProtoBuf.LinkErrorValue.Parser);
+    private readonly pbc::RepeatedField<global::XO.ProtoBuf.LinkErrorValue> errors_ = new pbc::RepeatedField<global::XO.ProtoBuf.LinkErrorValue>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::IPA5.XO.ProtoBuf.LinkErrorValue> Errors {
+    public pbc::RepeatedField<global::XO.ProtoBuf.LinkErrorValue> Errors {
       get { return errors_; }
     }
 
@@ -3852,7 +3849,7 @@ namespace IPA5.XO.ProtoBuf {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::IPA5.XO.ProtoBuf.BrokerPackageReflection.Descriptor.MessageTypes[15]; }
+      get { return global::XO.ProtoBuf.BrokerPackageReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3880,11 +3877,11 @@ namespace IPA5.XO.ProtoBuf {
 
     /// <summary>Field number for the "BrokerMessageList" field.</summary>
     public const int BrokerMessageListFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::IPA5.XO.ProtoBuf.BrokerMessage> _repeated_brokerMessageList_codec
-        = pb::FieldCodec.ForMessage(10, global::IPA5.XO.ProtoBuf.BrokerMessage.Parser);
-    private readonly pbc::RepeatedField<global::IPA5.XO.ProtoBuf.BrokerMessage> brokerMessageList_ = new pbc::RepeatedField<global::IPA5.XO.ProtoBuf.BrokerMessage>();
+    private static readonly pb::FieldCodec<global::XO.ProtoBuf.BrokerMessage> _repeated_brokerMessageList_codec
+        = pb::FieldCodec.ForMessage(10, global::XO.ProtoBuf.BrokerMessage.Parser);
+    private readonly pbc::RepeatedField<global::XO.ProtoBuf.BrokerMessage> brokerMessageList_ = new pbc::RepeatedField<global::XO.ProtoBuf.BrokerMessage>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::IPA5.XO.ProtoBuf.BrokerMessage> BrokerMessageList {
+    public pbc::RepeatedField<global::XO.ProtoBuf.BrokerMessage> BrokerMessageList {
       get { return brokerMessageList_; }
     }
 
@@ -3973,7 +3970,7 @@ namespace IPA5.XO.ProtoBuf {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::IPA5.XO.ProtoBuf.BrokerPackageReflection.Descriptor.MessageTypes[16]; }
+      get { return global::XO.ProtoBuf.BrokerPackageReflection.Descriptor.MessageTypes[16]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4094,7 +4091,7 @@ namespace IPA5.XO.ProtoBuf {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::IPA5.XO.ProtoBuf.BrokerPackageReflection.Descriptor.MessageTypes[17]; }
+      get { return global::XO.ProtoBuf.BrokerPackageReflection.Descriptor.MessageTypes[17]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4122,11 +4119,11 @@ namespace IPA5.XO.ProtoBuf {
 
     /// <summary>Field number for the "CommIdentifiers" field.</summary>
     public const int CommIdentifiersFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::IPA5.XO.ProtoBuf.CommIdentifier> _repeated_commIdentifiers_codec
-        = pb::FieldCodec.ForMessage(10, global::IPA5.XO.ProtoBuf.CommIdentifier.Parser);
-    private readonly pbc::RepeatedField<global::IPA5.XO.ProtoBuf.CommIdentifier> commIdentifiers_ = new pbc::RepeatedField<global::IPA5.XO.ProtoBuf.CommIdentifier>();
+    private static readonly pb::FieldCodec<global::XO.ProtoBuf.CommIdentifier> _repeated_commIdentifiers_codec
+        = pb::FieldCodec.ForMessage(10, global::XO.ProtoBuf.CommIdentifier.Parser);
+    private readonly pbc::RepeatedField<global::XO.ProtoBuf.CommIdentifier> commIdentifiers_ = new pbc::RepeatedField<global::XO.ProtoBuf.CommIdentifier>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::IPA5.XO.ProtoBuf.CommIdentifier> CommIdentifiers {
+    public pbc::RepeatedField<global::XO.ProtoBuf.CommIdentifier> CommIdentifiers {
       get { return commIdentifiers_; }
     }
 
